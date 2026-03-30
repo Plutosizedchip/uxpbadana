@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mobile Service App — Figma Screens (iPhone 17 · 393×852pt)</title>
+<style>
+/* ============================================================
+   FIGMA IMPORT FILE — Mobile Service App
+   Each .iphone-frame = one Figma frame (393×852pt)
+   Layout: 3 columns × 3 rows, 60px gap
+   Import: HTML to Figma plugin by Builder.io
+   ============================================================ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --purple: #5B4FCF;
+  --purple-light: #F0EEFF;
+  --bg: #F5F5F7;
+  --surface: #FFFFFF;
+  --text: #1C1C1E;
+  --muted: #8E8E93;
+  --border: #E5E5E7;
+  --success: #34C759;
+  --success-bg: #D4F5E2;
+  --warning-bg: #FFF3E0;
+  --warning-text: #B36A00;
+  --font: -apple-system, "SF Pro Display", sans-serif;
+}
+body {
+  background: #E8E8EC;
+  font-family: var(--font);
+  padding: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 393px);
+  gap: 60px;
+  width: fit-content;
+}
+.iphone-frame {
+  width: 393px;
+  height: 852px;
+  background: var(--bg);
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+.frame-label {
+  position: absolute;
+  top: -28px;
+  left: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  letter-spacing: 0.3px;
+}
+
+/* ── Shared Components ── */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 8px;
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--surface);
+  color: var(--text);
+}
+.status-icons { display:flex; gap:6px; align-items:center; font-size:11px; }
+.nav-bar {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+.nav-title { font-size: 20px; font-weight: 700; color: var(--text); flex: 1; }
+.back-arrow { color: var(--purple); font-size: 20px; }
+.tab-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 8px 0 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.tab-item {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 3px; font-size: 10px; color: var(--muted); font-weight: 500;
+}
+.tab-item.active { color: var(--purple); }
+.tab-icon { font-size: 22px; }
+.badge {
+  background: #FF3B30; color: #fff; border-radius: 10px;
+  padding: 1px 5px; font-size: 10px; font-weight: 700;
+  position: relative; top: -8px; left: -6px;
+}
+.primary-btn {
+  width: 100%; background: var(--purple); color: #fff;
+  border: none; border-radius: 14px; padding: 15px;
+  font-size: 16px; font-weight: 700; font-family: var(--font);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.card {
+  background: var(--surface); border-radius: 16px;
+  padding: 14px 16px; margin: 0 16px 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.section-title {
+  font-size: 13px; font-weight: 600; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;
+}
+.qty-ctrl { display:flex; align-items:center; gap:10px; }
+.qty-btn {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1.5px solid var(--border); background: #fff;
+  font-size: 18px; display:flex; align-items:center; justify-content:center;
+  color: var(--purple); font-weight: 600;
+}
+.qty-num { font-size:16px; font-weight:700; min-width:16px; text-align:center; }
+.status-badge {
+  border-radius: 8px; padding: 4px 10px;
+  font-size: 12px; font-weight: 700; white-space: nowrap;
+}
+.delivered { background: var(--success-bg); color: #1a7a3e; }
+.pending-badge { background: var(--warning-bg); color: var(--warning-text); }
+
+/* ── Screen 1: Home ── */
+#s1 .search-bar {
+  margin: 12px 16px;
+  background: var(--surface); border-radius: 12px;
+  padding: 10px 14px; display:flex; align-items:center; gap:8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+#s1 .search-bar span { font-size:14px; color:var(--muted); }
+#s1 .search-bar input {
+  border:none; outline:none; font-size:15px; color: var(--muted);
+  width:100%; background:transparent; font-family:var(--font);
+}
+#s1 .vendor-card {
+  background: var(--surface); border-radius: 16px; padding:16px;
+  margin: 0 16px 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+#s1 .vendor-header {
+  display:flex; align-items:center; gap:12px; margin-bottom:12px;
+}
+#s1 .vendor-img {
+  width:52px; height:52px; border-radius:12px; background:#f0f0f0;
+  display:flex; align-items:center; justify-content:center; font-size:26px;
+}
+#s1 .v-name { font-size:17px; font-weight:700; color:var(--text); }
+#s1 .v-cat { font-size:13px; color:var(--muted); margin-top:2px; }
+#s1 .add-items-btn {
+  width:100%; background:var(--purple); color:#fff; border:none;
+  border-radius:12px; padding:12px; font-size:15px; font-weight:600;
+  font-family:var(--font); display:flex; align-items:center; justify-content:center; gap:8px;
+}
+#s1 .nav-icon {
+  width:36px; height:36px; background:var(--purple-light); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:16px;
+}
+
+/* ── Screen 2: Fresh Market ── */
+#s2 .item-row {
+  background:var(--surface); margin:0 16px 10px;
+  border-radius:16px; padding:14px 16px;
+  display:flex; align-items:center; gap:12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+#s2 .item-img {
+  width:56px; height:56px; border-radius:12px; background:#f0f0f0;
+  display:flex; align-items:center; justify-content:center; font-size:28px; flex-shrink:0;
+}
+#s2 .item-name { font-size:16px; font-weight:600; color:var(--text); }
+#s2 .item-price { font-size:14px; color:var(--purple); margin-top:3px; }
+#s2 .footer {
+  position:absolute; bottom:0; left:0; right:0;
+  background:var(--surface); padding:14px 16px 34px;
+  border-top:1px solid var(--border);
+}
+#s2 .footer-row {
+  display:flex; justify-content:space-between; margin-bottom:12px;
+  font-size:15px; font-weight:600; color:var(--text);
+}
+
+/* ── Screen 3: Unified Cart ── */
+#s3 .summary-bar {
+  display:flex; justify-content:space-between; padding:14px 20px;
+  background:var(--surface); margin-bottom:2px;
+}
+#s3 .cart-badge {
+  background:var(--purple); color:#fff; border-radius:50%;
+  width:22px; height:22px; font-size:12px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+#s3 .vendor-section { background:var(--surface); margin-bottom:2px; }
+#s3 .vendor-label {
+  padding:12px 20px 8px; font-size:17px; font-weight:700;
+  color:var(--text); border-bottom:1px solid #f0f0f2;
+}
+#s3 .cart-item {
+  display:flex; align-items:center; gap:12px;
+  padding:12px 20px; border-bottom:1px solid var(--bg);
+}
+#s3 .ci-img {
+  width:50px; height:50px; border-radius:10px; background:#f0f0f0;
+  display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0;
+}
+#s3 .ci-name { font-size:15px; font-weight:600; color:var(--text); }
+#s3 .ci-sub { font-size:13px; color:var(--muted); margin-top:2px; }
+#s3 .ci-price { font-size:15px; font-weight:700; color:var(--text); }
+
+/* ── Screen 4: Checkout ── */
+#s4 .section-card {
+  background:var(--surface); margin:10px 16px;
+  border-radius:16px; padding:16px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.06);
+}
+#s4 .order-row {
+  display:flex; justify-content:space-between; padding:6px 0;
+  font-size:15px; color:var(--text); border-bottom:1px solid var(--bg);
+}
+#s4 .order-row.total {
+  border:none; font-weight:700; font-size:17px; padding-top:10px;
+}
+#s4 .visa-badge {
+  background:#1a1f71; color:#fff; border-radius:6px;
+  padding:3px 8px; font-size:12px; font-weight:700;
+}
+#s4 .date-badge {
+  background:var(--purple-light); color:var(--purple);
+  border-radius:8px; padding:5px 10px; font-size:13px; font-weight:600;
+  display:inline-block; margin-top:8px;
+}
+
+/* ── Screen 5: Order Summary ── */
+#s5 .hero-card {
+  background:var(--surface); margin:12px 16px; border-radius:20px;
+  padding:20px; box-shadow:0 2px 12px rgba(91,79,207,0.12);
+  display:flex; justify-content:space-between; align-items:flex-start;
+}
+#s5 .total-section {
+  background:var(--surface); margin:0 16px;
+  border-radius:16px; padding:16px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.06);
+}
+#s5 .total-row {
+  display:flex; justify-content:space-between; padding:8px 0;
+  font-size:15px; color:var(--text); border-bottom:1px solid var(--bg);
+}
+#s5 .total-row.final {
+  border:none; font-weight:800; font-size:17px; padding-top:12px;
+}
+
+/* ── Screen 7: Order Scheduled ── */
+#s7 .hero {
+  background:var(--surface); margin:16px; border-radius:20px;
+  padding:24px 20px 20px; box-shadow:0 2px 12px rgba(0,0,0,0.08); text-align:center;
+}
+#s7 .tl-item {
+  display:flex; align-items:flex-start; gap:14px;
+  padding:12px 0; border-bottom:1px solid var(--bg);
+}
+#s7 .tl-dot {
+  width:20px; height:20px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; margin-top:2px; font-size:11px; color:#fff; font-weight:700;
+}
+#s7 .tl-vendor { font-size:16px; font-weight:700; color:var(--text); }
+#s7 .tl-time { font-size:13px; color:var(--muted); margin-top:2px; }
+#s7 .pending-tag { font-size:12px; color:#FF9500; font-weight:600; margin-top:3px; }
+
+/* ── Screen 8: Tracking ── */
+#s8 .track-item {
+  background:var(--surface); margin:0 16px 10px; border-radius:16px;
+  padding:14px 16px; display:flex; align-items:center; gap:12px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* ── Screen 9: Orders ── */
+#s9 .order-group {
+  background:var(--surface); margin:10px 16px; border-radius:16px;
+  padding:16px; box-shadow:0 1px 4px rgba(0,0,0,0.06);
+}
+#s9 .og-title { font-size:17px; font-weight:700; color:var(--text); margin-bottom:12px; }
+#s9 .order-item {
+  display:flex; align-items:flex-start; gap:12px;
+  padding:10px 0; border-bottom:1px solid var(--bg);
+}
+#s9 .order-item:last-child { border:none; }
+#s9 .oi-vendor { font-size:15px; font-weight:600; color:var(--text); }
+#s9 .oi-sub { font-size:13px; color:var(--muted); margin-top:2px; }
+#s9 .oi-price { font-size:15px; font-weight:700; color:var(--text); margin-top:4px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 1 — Home
+     ═══════════════════════════════════════════ -->
+<div class="iphone-frame" id="s1">
+  <span class="frame-label">01 – Home</span>
+  <div class="status-bar">
+    <span>9:41</span>
+    <div class="status-icons"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+  <div class="nav-bar">
+    <span style="color:var(--purple);font-size:20px">☰</span>
+    <div class="nav-title">Mobile Service App</div>
+    <div class="nav-icon">👤</div>
+  </div>
+  <div class="search-bar">
+    <span>🔍</span>
+    <input placeholder="Search vendors..." disabled>
+  </div>
+  <div class="vendor-card">
+    <div class="vendor-header">
+      <div class="vendor-img">🛒</div>
+      <div><div class="v-name">Fresh Market</div><div class="v-cat">Grocery</div></div>
+    </div>
+    <button class="add-items-btn">🛒 Add Items</button>
+  </div>
+  <div class="vendor-card">
+    <div class="vendor-header">
+      <div class="vendor-img">💻</div>
+      <div><div class="v-name">Tech Hub</div><div class="v-cat">Electronics</div></div>
+    </div>
+    <button class="add-items-btn">🛒 Add Items</button>
+  </div>
+  <div class="vendor-card">
+    <div class="vendor-header">
+      <div class="vendor-img">🍽️</div>
+      <div><div class="v-name">Tasty Catering</div><div class="v-cat">Catering</div></div>
+    </div>
+    <button class="add-items-btn">🛒 Add Items</button>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item active"><span class="tab-icon">🏠</span>Home</div>
+    <div class="tab-item"><span class="tab-icon">🛒</span><span style="position:relative">Cart<span class="badge">2</span></span></div>
+    <div class="tab-item"><span class="tab-icon">📋</span>Orders</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 2 — Fresh Market
+     ═══════════════════════════════════════════ -->
+<div class="iphone-frame" id="s2">
+  <span class="frame-label">02 – Fresh Market</span>
+  <div class="status-bar"><span>9:41</span><div class="status-icons"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+  <div class="nav-bar">
+    <span class="back-arrow">←</span>
+    <div class="nav-title">Fresh Market</div>
+  </div>
+  <div style="height:12px"></div>
+  <div class="item-row">
+    <div class="item-img">🍎</div>
+    <div style="flex:1"><div class="item-name">Fresh Apples</div><div class="item-price">$2.99 / lb</div></div>
+    <div class="qty-ctrl"><div class="qty-btn">−</div><div class="qty-num">1</div><div class="qty-btn">+</div></div>
+  </div>
+  <div class="item-row">
+    <div class="item-img">🍌</div>
+    <div style="flex:1"><div class="item-name">Organic Bananas</div><div class="item-price">$1.49 / bunch</div></div>
+    <div class="qty-ctrl"><div class="qty-btn">−</div><div class="qty-num">1</div><div class="qty-btn">+</div></div>
+  </div>
+  <div class="item-row">
+    <div class="item-img">🍅</div>
+    <div style="flex:1"><div class="item-name">Cherry Tomatoes</div><div class="item-price">$3.49 / box</div></div>
+    <div class="qty-ctrl"><div class="qty-btn">−</div><div class="qty-num">1</div><div class="qty-btn">+</div></div>
+  </div>
+  <div class="footer">
+    <div class="footer-row"><span>3 Items</span><span>$7.97</span></div>
+    <button class="primary-btn">🛒 Add to Unified Cart</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 3 — Unified Cart
+     ═══════════════════════════════════════════ -->
+<div class="iphone-frame" id="s3">
+  <span class="frame-label">03 – Unified Cart</span>
+  <div class="status-bar"><span>9:41</span><div class="status-icons"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+  <div class="nav-bar">
+    <span class="back-arrow">←</span>
+    <div class="nav-title">Unified Cart</div>
+    <div class="cart-badge">3</div>
+  </div>
+  <div class="summary-bar">
+    <span style="font-size:20px;font-weight:700;color:var(--text)">3 Items</span>
+    <span style="font-size:20px;font-weight:700;color:var(--purple)">$7.97</span>
+  </div>
+  <div class="vendor-section">
+    <div class="vendor-label">Fresh Market</div>
+    <div class="cart-item"><div class="ci-img">🍎</div><div style="flex:1"><div class="ci-name">Fresh Apples</div><div class="ci-sub">Qty 1</div></div><div class="ci-price">$2.99</div></div>
+    <div class="cart-item"><div class="ci-img">🍌</div><div style="flex:1"><div class="ci-name">Organic Bananas</div><div class="ci-sub">2 · 6 Bunches</div></div><div class="ci-price">$2.98</div></div>
+  </div>
+  <div class="vendor-section">
+    <div class="vendor-label">Tech Hub</div>
+    <div class="cart-item"><div class="ci-img">🎧</div><div style="flex:1"><div class="ci-name">Wireless Earbuds</div><div class="ci-sub">Qty 1</div></div><div class="ci-price">$49.99</div></div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px 34px;background:var(--surface);border-top:1px solid var(--border)">
+    <button class="primary-btn">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 4 — Checkout
+     ═══════════════════════════════════════════ -->
+<div class="iphone-frame" id="s4">
+  <span class="frame-label">04 – Checkout</span>
+  <div class="status-bar"><span>9:41</span><div class="status-icons"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+  <div class="nav-bar"><span class="back-arrow">←</span><div class="nav-title">Checkout</div></div>
+  <div class="section-card">
+    <div class="section-title">Delivery Address</div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:15px;color:var(--text)">123 Main St, Springfield, IL 6…</span>
+      <span style="color:var(--purple)">›</span>
+    </div>
+    <span class="date-badge">April 25, 2024</span>
+  </div>
+  <div class="section-card">
+    <div class="section-title">Payment Method</div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <span class="visa-badge">VISA</span>
+      <span style="font-size:15px;color:var(--muted)">•••• 1234</span>
+      <span style="margin-left:auto;color:var(--purple)">›</span>
+    </div>
+  </div>
+  <div class="section-card">
+    <div class="section-title">Order Summary</div>
+    <div class="order-row"><span>Fresh Market</span><span>$5.97</span></div>
+    <div class="order-row"><span>Tech Hub</span><span>$49.99</span></div>
+    <div class="order-row"><span>Delivery Fee</span><span>$5.00</span></div>
+    <div class="order-row total"><span>Total</span><span>$60.96</span></div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px 34px;background:var(--surface);border-top:1px solid var(--border)">
+    <button class="primary-btn" style="font-size:17px">Pay Now</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 5 — Order Summary
+     ═══════════════════════════════════════════ -->
+<div class="iphone-frame" id="s5">
+  <span class="frame-label">05 – Order Summary</span>
+  <div class="status-bar"><span>9:41</span><div class="status-icons"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+  <div class="nav-bar">
+    <span class="back-arrow">←</span>
+    <div style="flex:1">
+      <div class="nav-title">Sarah's Birthday</div>
+    </div>
+    <span style="font-size:14px;color:var(--muted)">April 25, 2024</span>
+  </div>
+  <div class="hero-card">
+    <div>
+      <div style="font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">Order Summary</div>
+      <div style="font-size:34px;font-weight:800;color:var(--purple)">$60.96</div>
+    </div>
+    <div style="font-size:48px">🎉</div>
+  </div>
+  <div style="height:10px"></div>
+  <div class="total-section">
+    <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:12px">Total summary</div>
+    <div class="total-row"><span>Fresh Market</span><span>$5.97</span></div>
+    <div class="total-row"><span>Tech Hub</span><span>$49.99</span></div>
+    <div class="total-row"><span>Delivery Fee</span><span>$5.00</span></div>
+    <div class="total-row final"><span>Total</span><span>$60.96</span></div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px 34px;background:var(--surface);border-top:1px solid var(--border)">
+    <button class="primary-btn" style="font-size:17px">Pay Now</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 6 — Checkout Items
+     ═══════════════════════════════════════════ -->
+<div class="iphone-frame" id="s6">
+  <span class="frame-label">06 – Checkout Items</span>
+  <div class="status-bar"><span>9:41</span><div class="status-icons"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+  <div class="nav-bar">
+    <span class="back-arrow">←</span>
+    <span style="font-size:16px;color:var(--purple)">🛍️</span>
+    <div class="nav-title">Check Out</div>
+  </div>
+  <div style="padding:16px 20px 8px;font-size:20px;font-weight:700;color:var(--text);background:var(--surface);margin-bottom:2px">Fresh Market</div>
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="width:52px;height:52px;border-radius:10px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:26px">🍎</div>
+      <span style="font-size:16px;font-weight:600;color:var(--text);flex:1">Fresh Apples</span>
+      <span style="font-size:15px;font-weight:700;color:var(--purple)">$2.99</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="font-size:14px;color:var(--muted)">Qty 1</span>
+      <div class="qty-ctrl"><div class="qty-btn">−</div><div class="qty-num">1</div><div class="qty-btn">+</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="width:52px;height:52px;border-radius:10px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:26px">🍌</div>
+      <span style="font-size:16px;font-weight:600;color:var(--text);flex:1">Organic Bananas</span>
+      <span style="font-size:15px;font-weight:700;color:var(--purple)">$2.98</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="font-size:14px;color:var(--muted)">Qty 2</span>
+      <div class="qty-ctrl"><div class="qty-btn">−</div><div class="qty-num">1</div><div class="qty-btn">+</div></div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px 34px;background:var(--surface);border-top:1px solid var(--border)">
+    <button class="primary-btn">🛒 Add to Unified Cart</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 7 — Order Scheduled
+     ═══════════════════════════════════════════ -->
+<div class="iphone-frame" id="s7">
+  <span class="frame-label">07 – Order Scheduled</span>
+  <div class="status-bar"><span>9:41</span><div class="status-icons"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+  <div class="nav-bar"><span class="back-arrow">←</span></div>
+  <div class="hero">
+    <div style="font-size:60px;margin-bottom:12px">🏙️📦</div>
+    <div style="font-size:24px;font-weight:800;color:var(--text);margin-bottom:4px">Order Scheduled</div>
+    <div style="font-size:15px;color:var(--muted)">April 25, 2024</div>
+  </div>
+  <div style="height:12px"></div>
+  <div class="card" style="padding:16px">
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#34C759">✓</div>
+      <div style="flex:1"><div class="tl-vendor">Fresh Market</div><div class="tl-time">Nov · 10:00 AM – 11:00 AM</div></div>
+      <span style="font-size:15px;font-weight:700;color:var(--text)">$9.97</span>
+    </div>
+    <div style="width:2px;height:16px;background:var(--border);margin-left:9px;border-radius:0"></div>
+    <div class="tl-item" style="border:none">
+      <div class="tl-dot" style="background:#FF9500">!</div>
+      <div style="flex:1"><div class="tl-vendor">Wireless Earbuds</div><div class="pending-tag">Pending Confirmation</div></div>
+      <span style="font-size:15px;font-weight:700;color:var(--text)">$15.00</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 8 — Order Tracking
+     ═══════════════════════════════════════════ -->
+<div class="iphone-frame" id="s8">
+  <span class="frame-label">08 – Order Tracking</span>
+  <div class="status-bar"><span>9:41</span><div class="status-icons"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+  <div class="nav-bar">
+    <span class="back-arrow">←</span>
+    <div class="nav-title">Unified Cart</div>
+    <span style="color:var(--muted);font-size:20px">⋮</span>
+  </div>
+  <div style="padding:16px 20px 8px;font-size:20px;font-weight:700;color:var(--text);background:var(--surface);margin-bottom:2px">Fresh Market</div>
+  <div class="track-item">
+    <div style="width:52px;height:52px;border-radius:10px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:26px">🍎</div>
+    <div style="flex:1"><div style="font-size:16px;font-weight:600;color:var(--text)">Fresh Apples</div><div style="font-size:13px;color:var(--muted);margin-top:2px">Qty 1</div></div>
+    <span class="status-badge delivered">Delivered</span>
+  </div>
+  <div class="track-item">
+    <div style="width:52px;height:52px;border-radius:10px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:26px">🍌</div>
+    <div style="flex:1"><div style="font-size:16px;font-weight:600;color:var(--text)">Organic Bananas</div><div style="font-size:13px;color:var(--muted);margin-top:2px">Qty 2</div></div>
+    <span class="status-badge pending-badge">Pending</span>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item"><span class="tab-icon">🏠</span>Home</div>
+    <div class="tab-item active"><span class="tab-icon">🛒</span><span style="position:relative">Cart<span class="badge">2</span></span></div>
+    <div class="tab-item"><span class="tab-icon">📋</span>Orders</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 9 — Orders
+     ═══════════════════════════════════════════ -->
+<div class="iphone-frame" id="s9">
+  <span class="frame-label">09 – Orders</span>
+  <div class="status-bar"><span>9:41</span><div class="status-icons"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+  <div class="nav-bar" style="border-bottom:1px solid var(--border)">
+    <div style="font-size:24px;font-weight:800;color:var(--text)">Orders</div>
+  </div>
+  <div class="order-group">
+    <div class="og-title">Sarah's Birthday</div>
+    <div class="order-item">
+      <div style="flex:1">
+        <div class="oi-vendor">Fresh Market</div>
+        <div class="oi-sub">Qty 1</div>
+        <div class="oi-price">$2.99</div>
+      </div>
+      <span class="status-badge delivered">Delivered</span>
+    </div>
+    <div class="order-item">
+      <div style="flex:1">
+        <div class="oi-vendor">Tasty Catering</div>
+        <div class="oi-sub">Qty 2</div>
+        <div class="oi-price">$20.00</div>
+      </div>
+      <span class="status-badge pending-badge">Pending</span>
+    </div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item"><span class="tab-icon">🏠</span>Home</div>
+    <div class="tab-item"><span class="tab-icon">🛒</span><span style="position:relative">Cart<span class="badge">2</span></span></div>
+    <div class="tab-item active"><span class="tab-icon">📋</span>Orders</div>
+  </div>
+</div>
+
+</body>
+</html>

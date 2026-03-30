@@ -1,0 +1,163 @@
+{
+  "name": "Mobile Service App — iPhone 17",
+  "description": "9-screen mobile app UI. Import via Figma plugin 'Figma Tokens' or paste into a Figma document using the REST API. Each frame is 393×852pt (iPhone 17 standard, @3x = 1179×2556px).",
+  "figma_version": "2024.1",
+  "canvas": {
+    "background": "#F0F0F2",
+    "frames": [
+      {
+        "id": "frame_01",
+        "name": "01 – Home",
+        "x": 0, "y": 0,
+        "width": 393, "height": 852,
+        "backgroundColor": "#F5F5F7",
+        "exportAs": [{"format": "PNG", "suffix": "_3x", "constraint": {"type": "SCALE", "value": 3}}],
+        "notes": "Vendor list home screen with search bar and tab bar navigation"
+      },
+      {
+        "id": "frame_02",
+        "name": "02 – Fresh Market",
+        "x": 453, "y": 0,
+        "width": 393, "height": 852,
+        "backgroundColor": "#F5F5F7",
+        "notes": "Product listing for Fresh Market vendor with quantity controls"
+      },
+      {
+        "id": "frame_03",
+        "name": "03 – Unified Cart",
+        "x": 906, "y": 0,
+        "width": 393, "height": 852,
+        "backgroundColor": "#F5F5F7",
+        "notes": "Unified cart showing items from multiple vendors"
+      },
+      {
+        "id": "frame_04",
+        "name": "04 – Checkout",
+        "x": 1359, "y": 0,
+        "width": 393, "height": 852,
+        "backgroundColor": "#F5F5F7",
+        "notes": "Checkout screen with delivery address, payment, and order summary"
+      },
+      {
+        "id": "frame_05",
+        "name": "05 – Order Summary",
+        "x": 1812, "y": 0,
+        "width": 393, "height": 852,
+        "backgroundColor": "#F5F5F7",
+        "notes": "Sarah's Birthday order summary with total amount hero card"
+      },
+      {
+        "id": "frame_06",
+        "name": "06 – Checkout Items",
+        "x": 0, "y": 912,
+        "width": 393, "height": 852,
+        "backgroundColor": "#F5F5F7",
+        "notes": "Item review screen before adding to unified cart"
+      },
+      {
+        "id": "frame_07",
+        "name": "07 – Order Scheduled",
+        "x": 453, "y": 912,
+        "width": 393, "height": 852,
+        "backgroundColor": "#F5F5F7",
+        "notes": "Order confirmation and delivery timeline screen"
+      },
+      {
+        "id": "frame_08",
+        "name": "08 – Order Tracking",
+        "x": 906, "y": 912,
+        "width": 393, "height": 852,
+        "backgroundColor": "#F5F5F7",
+        "notes": "Live order status tracking with Delivered and Pending badges"
+      },
+      {
+        "id": "frame_09",
+        "name": "09 – Orders",
+        "x": 1359, "y": 912,
+        "width": 393, "height": 852,
+        "backgroundColor": "#F5F5F7",
+        "notes": "Orders list view with grouped order history"
+      }
+    ]
+  },
+  "design_tokens": {
+    "colors": {
+      "primary": "#5B4FCF",
+      "primary_light": "#F0EEFF",
+      "background": "#F5F5F7",
+      "surface": "#FFFFFF",
+      "text_primary": "#1C1C1E",
+      "text_secondary": "#8E8E93",
+      "border": "#E5E5E7",
+      "success": "#34C759",
+      "success_bg": "#D4F5E2",
+      "warning": "#FF9500",
+      "warning_bg": "#FFF3E0",
+      "destructive": "#FF3B30"
+    },
+    "typography": {
+      "font_family": "-apple-system, SF Pro Display, sans-serif",
+      "sizes": {
+        "xs": 10, "sm": 12, "base": 14, "md": 15,
+        "lg": 16, "xl": 17, "2xl": 20, "3xl": 24, "4xl": 34
+      },
+      "weights": {"regular": 400, "semibold": 600, "bold": 700, "extrabold": 800}
+    },
+    "spacing": {
+      "screen_padding": 16,
+      "nav_padding": 20,
+      "card_padding": 16,
+      "gap_sm": 8, "gap_md": 12, "gap_lg": 16
+    },
+    "border_radius": {
+      "sm": 8, "md": 12, "lg": 16, "xl": 20, "pill": 100
+    }
+  },
+  "component_library": {
+    "StatusBar": {"height": 44, "content": "9:41 + signal/wifi/battery"},
+    "NavBar": {"height": 56, "paddingH": 20},
+    "TabBar": {"height": 83, "safeArea": 34, "items": ["Home","Cart","Orders"]},
+    "VendorCard": {"borderRadius": 16, "padding": 16, "shadow": "0 1px 6px rgba(0,0,0,0.06)"},
+    "ItemRow": {"height": 84, "borderRadius": 16, "padding": "14px 16px"},
+    "PrimaryButton": {"height": 50, "borderRadius": 14, "background": "#5B4FCF", "color": "#FFFFFF"},
+    "QtyControl": {"buttonSize": 30, "borderRadius": "50%"},
+    "StatusBadge": {"borderRadius": 8, "paddingH": 10, "paddingV": 4}
+  },
+  "flow": {
+    "screens": ["01_Home", "02_Fresh_Market", "03_Unified_Cart", "04_Checkout", "05_Order_Summary"],
+    "alt_flow": ["06_Checkout_Items", "07_Order_Scheduled", "08_Order_Tracking", "09_Orders"],
+    "connections": [
+      {"from": "01_Home", "to": "02_Fresh_Market", "trigger": "Tap 'Add Items'"},
+      {"from": "02_Fresh_Market", "to": "03_Unified_Cart", "trigger": "Tap 'Add to Unified Cart'"},
+      {"from": "03_Unified_Cart", "to": "04_Checkout", "trigger": "Tap 'Proceed to Checkout'"},
+      {"from": "04_Checkout", "to": "05_Order_Summary", "trigger": "Tap 'Pay Now'"},
+      {"from": "05_Order_Summary", "to": "07_Order_Scheduled", "trigger": "Tap 'Pay Now'"},
+      {"from": "07_Order_Scheduled", "to": "08_Order_Tracking", "trigger": "After confirmation"},
+      {"from": "01_Home", "to": "09_Orders", "trigger": "Tab bar → Orders"}
+    ]
+  },
+  "import_instructions": {
+    "method_1_html_to_figma": {
+      "plugin": "HTML to Figma (by Builder.io)",
+      "steps": [
+        "1. Open Figma and create a new file",
+        "2. Install 'HTML to Figma' plugin from the Community",
+        "3. Open each screen HTML file (included in the zip)",
+        "4. Run the plugin and paste HTML content",
+        "5. Frames will be created at 393×852pt automatically"
+      ]
+    },
+    "method_2_figma_rest_api": {
+      "endpoint": "POST https://api.figma.com/v1/files/{file_key}/frames",
+      "note": "Use this JSON as the payload with your Figma Personal Access Token"
+    },
+    "method_3_drag_png": {
+      "steps": [
+        "1. Open Figma",
+        "2. Drag and drop the PNG files onto the canvas",
+        "3. In the right panel, set frame to iPhone 17 (393×852)",
+        "4. Use the JSON design tokens to recreate editable layers"
+      ]
+    }
+  }
+}
