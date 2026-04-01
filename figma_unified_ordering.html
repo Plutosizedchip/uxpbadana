@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Feature 4 — Unified Ordering & Smart Logistics · Figma Import · iPhone 17</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#DDDFE4;font-family:Arial,sans-serif;padding:60px;display:grid;grid-template-columns:repeat(3,393px);gap:64px;width:fit-content}
+.frame{width:393px;height:852px;overflow:hidden;position:relative}
+.frame-label{position:absolute;top:-30px;left:0;font-size:12px;font-weight:700;color:#333;letter-spacing:0.3px}
+
+/* === 01 — Select Event Services === */
+
+*{margin:0;padding:0;box-sizing:border-box}
+#s1_frame{width:393px;height:852px;font-family:Arial,sans-serif;background:#F8F9FA;overflow:hidden}
+.status{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 6px;background:#fff;font-size:15px;font-weight:700}
+.si{display:flex;gap:5px;font-size:11px;align-items:center}
+.top-bar{background:#fff;padding:10px 20px 14px;border-bottom:1px solid #E5E7EB}
+.top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.page-title{font-size:20px;font-weight:700;color:#1F2937}
+.cart-pill{background:#4F46E5;color:#fff;border-radius:20px;padding:5px 12px;font-size:12px;font-weight:700}
+.search{background:#F8F9FA;border:1.5px solid #E5E7EB;border-radius:12px;padding:10px 14px;font-size:14px;color:#9CA3AF}
+.event-tag{margin:10px 16px;background:#EEF2FF;border-radius:12px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
+.section-label{font-size:11px;font-weight:700;color:#9CA3AF;letter-spacing:0.8px;text-transform:uppercase;padding:8px 16px 4px}
+.vc{background:#fff;margin:0 16px 8px;border-radius:14px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,0.06);display:flex;align-items:center;gap:12px}
+.vi{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.add-btn{margin-left:auto;background:#4F46E5;color:#fff;border:none;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;font-family:Arial,sans-serif;flex-shrink:0}
+.added-btn{margin-left:auto;background:#D1FAE5;color:#10B981;border:none;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;font-family:Arial,sans-serif;flex-shrink:0}
+.bottom-bar{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #E5E7EB;padding:12px 16px 28px}
+.primary-btn{width:100%;background:#4F46E5;color:#fff;border:none;border-radius:14px;padding:14px;font-size:16px;font-weight:700;font-family:Arial,sans-serif}
+
+/* === 02 — Unified Order === */
+
+*{margin:0;padding:0;box-sizing:border-box}
+#s2_frame{width:393px;height:852px;font-family:Arial,sans-serif;background:#F8F9FA;overflow:hidden}
+.status{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 6px;background:#fff;font-size:15px;font-weight:700}
+.si{display:flex;gap:5px;font-size:11px;align-items:center}
+.nav{background:#fff;padding:8px 20px 14px;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;gap:12px}
+.nav-title{font-size:20px;font-weight:700;color:#1F2937;flex:1}
+.event-banner{background:#EEF2FF;margin:10px 16px;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.vg{background:#fff;margin-bottom:2px}
+.vg-header{padding:10px 16px 6px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #F3F4F6}
+.vg-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.service-row{display:flex;align-items:flex-start;gap:10px;padding:10px 16px;border-bottom:1px solid #F9FAFB}
+.sr-emoji{font-size:20px;width:36px;text-align:center;margin-top:2px}
+.sr-name{font-size:14px;font-weight:600;color:#1F2937}
+.sr-sub{font-size:11px;color:#6B7280;margin-top:2px}
+.sr-price{margin-left:auto;font-size:14px;font-weight:700;color:#1F2937;white-space:nowrap}
+.pkg-badge{background:#EEF2FF;color:#4F46E5;border-radius:6px;padding:2px 7px;font-size:10px;font-weight:700;display:inline-block;margin-top:4px}
+.sum-card{background:#fff;margin:8px 16px;border-radius:14px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.sum-row{display:flex;justify-content:space-between;padding:5px 0;font-size:14px;color:#6B7280;border-bottom:1px solid #F9FAFB}
+.sum-row.total{font-size:16px;font-weight:700;color:#1F2937;border:none;padding-top:8px}
+.bottom-bar{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #E5E7EB;padding:12px 16px 28px}
+.primary-btn{width:100%;background:#4F46E5;color:#fff;border:none;border-radius:14px;padding:14px;font-size:16px;font-weight:700;font-family:Arial,sans-serif}
+
+/* === 03 — Checkout & Payment === */
+
+*{margin:0;padding:0;box-sizing:border-box}
+#s3_frame{width:393px;height:852px;font-family:Arial,sans-serif;background:#F8F9FA;overflow:hidden}
+.status{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 6px;background:#fff;font-size:15px;font-weight:700}
+.si{display:flex;gap:5px;font-size:11px;align-items:center}
+.nav{background:#fff;padding:8px 20px 14px;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;gap:12px}
+.steps{display:flex;align-items:center;justify-content:center;padding:12px 16px;background:#fff;margin-bottom:2px}
+.step{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
+.sc{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.step-line{height:2px;flex:1;background:#E5E7EB;margin-top:-18px}
+.done-line{background:#10B981}
+.sched-card{background:#EEF2FF;margin:0 16px 8px;border-radius:14px;padding:12px 14px}
+.card{background:#fff;margin:0 16px 8px;border-radius:14px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.card-title{font-size:13px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:10px}
+.field-label{font-size:12px;font-weight:600;color:#6B7280;margin-bottom:4px;margin-top:10px}
+.field{background:#F8F9FA;border:1.5px solid #E5E7EB;border-radius:10px;padding:10px 12px;font-size:14px;color:#1F2937;width:100%}
+.field.focused{border-color:#4F46E5;background:#fff}
+.pm-row{display:flex;gap:8px;margin-bottom:10px}
+.pm{flex:1;border:2px solid #E5E7EB;border-radius:10px;padding:8px;text-align:center;font-size:11px;font-weight:600;color:#6B7280}
+.pm.selected{border-color:#4F46E5;background:#EEF2FF;color:#4F46E5}
+.bottom-bar{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #E5E7EB;padding:12px 16px 28px}
+.primary-btn{width:100%;background:#4F46E5;color:#fff;border:none;border-radius:14px;padding:14px;font-size:16px;font-weight:700;font-family:Arial,sans-serif}
+
+/* === 04 — Booking Confirmed === */
+
+*{margin:0;padding:0;box-sizing:border-box}
+#s4_frame{width:393px;height:852px;font-family:Arial,sans-serif;background:#F8F9FA;overflow:hidden}
+.status{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 6px;background:#fff;font-size:15px;font-weight:700}
+.si{display:flex;gap:5px;font-size:11px;align-items:center}
+.nav{background:#fff;padding:8px 20px 14px;border-bottom:1px solid #E5E7EB;display:flex;align-items:center}
+.hero{background:#fff;margin:10px 16px;border-radius:16px;padding:20px 16px;text-align:center;box-shadow:0 2px 12px rgba(16,185,129,0.12)}
+.check-circle{width:60px;height:60px;border-radius:50%;background:#D1FAE5;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:28px}
+.pay-badge{background:#D1FAE5;border-radius:10px;padding:8px 14px;margin:8px 16px 4px;display:flex;align-items:center;gap:8px}
+.section-label{font-size:11px;font-weight:700;color:#9CA3AF;letter-spacing:0.8px;text-transform:uppercase;padding:6px 16px 4px}
+.tl-card{background:#fff;margin:0 16px 8px;border-radius:14px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.tl-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #F9FAFB}
+.tl-row:last-child{border:none;padding-bottom:0}
+.tl-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:2px}
+.chip{border-radius:6px;padding:2px 7px;font-size:10px;font-weight:700;display:inline-block;margin-top:3px}
+.chip-b{background:#EEF2FF;color:#4F46E5}
+.chip-p{background:#FEF3C7;color:#D97706}
+.action-row{display:flex;gap:10px;margin:8px 16px}
+.action-btn{flex:1;background:#fff;border:1.5px solid #4F46E5;color:#4F46E5;border-radius:12px;padding:11px;font-size:13px;font-weight:700;font-family:Arial,sans-serif}
+.action-btn.primary{background:#4F46E5;color:#fff;border-color:#4F46E5}
+
+/* === 05 — Event Dashboard === */
+
+*{margin:0;padding:0;box-sizing:border-box}
+#s5_frame{width:393px;height:852px;font-family:Arial,sans-serif;background:#F8F9FA;overflow:hidden}
+.status{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 6px;background:#4F46E5;font-size:15px;font-weight:700;color:#fff}
+.si{display:flex;gap:5px;font-size:11px;align-items:center}
+.top-hero{background:#4F46E5;padding:10px 20px 20px}
+.metric-row{display:flex;gap:0;margin:0 16px;transform:translateY(-16px)}
+.metric{flex:1;background:#fff;border-radius:12px;padding:10px 8px;text-align:center;margin:0 4px;box-shadow:0 2px 8px rgba(0,0,0,0.10)}
+.section-label{font-size:11px;font-weight:700;color:#9CA3AF;letter-spacing:0.8px;text-transform:uppercase;padding:0 16px 6px}
+.event-card{background:#fff;margin:0 16px 8px;border-radius:14px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.ec-header{background:#EEF2FF;padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
+.ec-#s5_frame{padding:10px 14px}
+.provider-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #F9FAFB}
+.provider-row:last-child{border:none}
+.pr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ec-footer{padding:8px 14px 10px;border-top:1px solid #F3F4F6;display:flex;justify-content:space-between;align-items:center}
+.chip{border-radius:8px;padding:3px 9px;font-size:11px;font-weight:700}
+.chip-s{background:#D1FAE5;color:#10B981}
+.chip-p{background:#FEF3C7;color:#D97706}
+.chip-b{background:#EEF2FF;color:#4F46E5}
+.quick-actions{display:flex;gap:8px;margin:0 16px 8px}
+.qa-btn{flex:1;background:#fff;border:1.5px solid #E5E7EB;border-radius:12px;padding:10px 8px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.tab-bar{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #E5E7EB;padding:8px 0 20px;display:flex;justify-content:space-around}
+.tab-item{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#9CA3AF;font-weight:600}
+.tab-item.active{color:#4F46E5}
+
+/* === 06 — Service Status === */
+
+*{margin:0;padding:0;box-sizing:border-box}
+#s6_frame{width:393px;height:852px;font-family:Arial,sans-serif;background:#F8F9FA;overflow:hidden}
+.status{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 6px;background:#fff;font-size:15px;font-weight:700}
+.si{display:flex;gap:5px;font-size:11px;align-items:center}
+.nav{background:#fff;padding:8px 20px 14px;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;gap:12px}
+.event-info{background:#EEF2FF;margin:10px 16px;border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.osc{background:#fff;margin:0 16px 8px;border-radius:14px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.osc-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #F3F4F6}
+.osc-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.chip{border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;margin-left:auto}
+.chip-s{background:#D1FAE5;color:#10B981}
+.chip-b{background:#EEF2FF;color:#4F46E5}
+.chip-p{background:#FEF3C7;color:#D97706}
+.progress-steps{display:flex;justify-content:space-between;margin-bottom:4px}
+.ps-item{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
+.ps-dot{width:16px;height:16px;border-radius:50%;border:2px solid #E5E7EB;background:#fff}
+.ps-dot.done{background:#10B981;border-color:#10B981}
+.ps-dot.active{background:#4F46E5;border-color:#4F46E5}
+.pb-bg{height:3px;background:#E5E7EB;border-radius:2px;margin:-12px 8px 8px}
+.pb-fill{height:3px;border-radius:2px}
+.status-note{display:flex;justify-content:space-between;font-size:12px;color:#6B7280;margin-top:4px}
+.tab-bar{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #E5E7EB;padding:8px 0 20px;display:flex;justify-content:space-around}
+.tab-item{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#9CA3AF;font-weight:600}
+.tab-item.active{color:#4F46E5}
+
+</style>
+</head>
+<body>
+
+<div class="frame" id="s1_frame">
+  <span class="frame-label">01 — Select Event Services</span>
+  <div class="status"><span>9:41</span><div class="si"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+<div class="top-bar">
+  <div class="top-row"><div class="page-title">Select Services</div><div class="cart-pill">📋 2 selected</div></div>
+  <div class="search">🔍 &nbsp;Search event services...</div>
+</div>
+<div class="event-tag">
+  <div><div style="font-size:13px;font-weight:700;color:#4F46E5">🎉 Sarah's Birthday Party</div><div style="font-size:11px;color:#6B7280">Event date: April 25, 2024 · Riyadh</div></div>
+  <span style="font-size:13px;font-weight:600;color:#4F46E5">Edit</span>
+</div>
+<div class="section-label">Event Service Providers</div>
+<div class="vc">
+  <div class="vi" style="background:#EEF2FF">🏛️</div>
+  <div><div style="font-size:15px;font-weight:700;color:#1F2937">Al Noor Venue Hall</div><div style="font-size:12px;color:#6B7280">Venue & Space</div><div style="font-size:12px;color:#D97706;margin-top:3px">⭐ 4.9 · Capacity 200</div></div>
+  <button class="added-btn">✓ Added</button>
+</div>
+<div class="vc">
+  <div class="vi" style="background:#FCE7F3">🎀</div>
+  <div><div style="font-size:15px;font-weight:700;color:#1F2937">Elegance Décor Co.</div><div style="font-size:12px;color:#6B7280">Decoration & Styling</div><div style="font-size:12px;color:#D97706;margin-top:3px">⭐ 4.8 · Setup included</div></div>
+  <button class="added-btn">✓ Added</button>
+</div>
+<div class="vc">
+  <div class="vi" style="background:#FEF3C7">📸</div>
+  <div><div style="font-size:15px;font-weight:700;color:#1F2937">Snap Studio</div><div style="font-size:12px;color:#6B7280">Photography & Video</div><div style="font-size:12px;color:#D97706;margin-top:3px">⭐ 4.7 · Full-day package</div></div>
+  <button class="add-btn">+ Add</button>
+</div>
+<div class="vc">
+  <div class="vi" style="background:#D1FAE5">🎶</div>
+  <div><div style="font-size:15px;font-weight:700;color:#1F2937">Rhythm Entertainment</div><div style="font-size:12px;color:#6B7280">Music & DJ Services</div><div style="font-size:12px;color:#D97706;margin-top:3px">⭐ 4.6 · 4-hour set</div></div>
+  <button class="add-btn">+ Add</button>
+</div>
+<div class="bottom-bar"><button class="primary-btn">View Unified Order →</button></div>
+</div>
+
+<div class="frame" id="s2_frame">
+  <span class="frame-label">02 — Unified Order</span>
+  <div class="status"><span>9:41</span><div class="si"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+<div class="nav"><span style="color:#4F46E5;font-size:20px">←</span><div class="nav-title">Unified Order</div><span style="font-size:13px;color:#4F46E5;font-weight:600">Edit</span></div>
+<div class="event-banner">
+  <span style="font-size:20px">📅</span>
+  <div><div style="font-size:13px;font-weight:700;color:#4F46E5">Sarah's Birthday Party</div><div style="font-size:11px;color:#6B7280">April 25, 2024 · All services coordinated</div></div>
+</div>
+<div class="vg">
+  <div class="vg-header"><div class="vg-icon" style="background:#EEF2FF">🏛️</div><div style="font-size:14px;font-weight:700;color:#1F2937">Al Noor Venue Hall</div><div style="margin-left:auto;font-size:13px;font-weight:700;color:#4F46E5">SAR 3,500</div></div>
+  <div class="service-row">
+    <span class="sr-emoji">🏛️</span>
+    <div style="flex:1"><div class="sr-name">Grand Ballroom — Full Day</div><div class="sr-sub">8 hrs · Up to 200 guests</div><span class="pkg-badge">Premium Package</span></div>
+    <div class="sr-price">SAR 3,500</div>
+  </div>
+</div>
+<div class="vg">
+  <div class="vg-header"><div class="vg-icon" style="background:#FCE7F3">🎀</div><div style="font-size:14px;font-weight:700;color:#1F2937">Elegance Décor Co.</div><div style="margin-left:auto;font-size:13px;font-weight:700;color:#4F46E5">SAR 1,200</div></div>
+  <div class="service-row">
+    <span class="sr-emoji">🎀</span>
+    <div style="flex:1"><div class="sr-name">Birthday Theme Setup</div><div class="sr-sub">Balloons, florals, table settings</div><span class="pkg-badge">Full Décor</span></div>
+    <div class="sr-price">SAR 800</div>
+  </div>
+  <div class="service-row">
+    <span class="sr-emoji">🎂</span>
+    <div style="flex:1"><div class="sr-name">Custom Cake Table</div><div class="sr-sub">Dessert station styling</div><span class="pkg-badge">Add-on</span></div>
+    <div class="sr-price">SAR 400</div>
+  </div>
+</div>
+<div class="sum-card">
+  <div class="sum-row"><span>Al Noor Venue Hall</span><span>SAR 3,500</span></div>
+  <div class="sum-row"><span>Elegance Décor Co.</span><span>SAR 1,200</span></div>
+  <div class="sum-row"><span>Coordination fee</span><span>SAR 150</span></div>
+  <div class="sum-row total"><span>Total</span><span>SAR 4,850</span></div>
+</div>
+<div class="bottom-bar"><button class="primary-btn">Proceed to Checkout · SAR 4,850</button></div>
+</div>
+
+<div class="frame" id="s3_frame">
+  <span class="frame-label">03 — Checkout & Payment</span>
+  <div class="status"><span>9:41</span><div class="si"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+<div class="nav"><span style="color:#4F46E5;font-size:20px">←</span><div style="font-size:20px;font-weight:700;color:#1F2937;flex:1">Checkout</div></div>
+<div class="steps">
+  <div class="step"><div class="sc" style="background:#10B981;color:#fff">✓</div><div style="font-size:10px;color:#10B981;font-weight:600">Order</div></div>
+  <div class="step-line done-line"></div>
+  <div class="step"><div class="sc" style="background:#4F46E5;color:#fff">2</div><div style="font-size:10px;color:#4F46E5;font-weight:600">Payment</div></div>
+  <div class="step-line"></div>
+  <div class="step"><div class="sc" style="background:#E5E7EB;color:#9CA3AF">3</div><div style="font-size:10px;color:#9CA3AF;font-weight:600">Confirm</div></div>
+</div>
+<div class="sched-card">
+  <div style="font-size:13px;font-weight:700;color:#4F46E5;margin-bottom:6px">📅 Auto-Scheduled by Event Date <span style="background:#D1FAE5;color:#10B981;border-radius:6px;padding:2px 6px;font-size:10px">AUTO</span></div>
+  <div style="font-size:12px;color:#6B7280;display:flex;justify-content:space-between;margin-top:3px"><span>🏛️ Venue setup (Al Noor)</span><span>April 25 · 8:00 AM</span></div>
+  <div style="font-size:12px;color:#6B7280;display:flex;justify-content:space-between;margin-top:3px"><span>🎀 Décor arrival (Elegance)</span><span>April 25 · 9:00 AM</span></div>
+  <div style="font-size:12px;color:#6B7280;display:flex;justify-content:space-between;margin-top:3px"><span>🎉 Event starts</span><span>April 25 · 7:00 PM</span></div>
+</div>
+<div class="card">
+  <div class="card-title">Event Location</div>
+  <div class="field-label">Venue Address</div>
+  <div class="field focused">Al Noor Venue Hall, Riyadh</div>
+  <div style="display:flex;gap:10px">
+    <div style="flex:2"><div class="field-label">City</div><div class="field">Riyadh</div></div>
+    <div style="flex:1"><div class="field-label">District</div><div class="field">Olaya</div></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">One Payment · All Providers</div>
+  <div class="pm-row">
+    <div class="pm selected">💳 Card</div>
+    <div class="pm">Apple Pay</div>
+    <div class="pm">Bank Transfer</div>
+  </div>
+  <div class="field-label">Card Number</div>
+  <div class="field">•••• •••• •••• 1234</div>
+  <div style="display:flex;gap:10px">
+    <div style="flex:1"><div class="field-label">Expiry</div><div class="field">04 / 27</div></div>
+    <div style="flex:1"><div class="field-label">CVV</div><div class="field">•••</div></div>
+  </div>
+  <div style="font-size:11px;color:#9CA3AF;margin-top:8px">🔒 Secured · Funds held until event confirmation</div>
+</div>
+<div class="bottom-bar"><button class="primary-btn">Pay SAR 4,850 · One Transaction</button></div>
+</div>
+
+<div class="frame" id="s4_frame">
+  <span class="frame-label">04 — Booking Confirmed</span>
+  <div class="status"><span>9:41</span><div class="si"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+<div class="nav"><div style="font-size:20px;font-weight:700;color:#1F2937;flex:1">Order Confirmed</div><span style="font-size:16px">🔔</span></div>
+<div class="hero">
+  <div class="check-circle">✓</div>
+  <div style="font-size:20px;font-weight:700;color:#1F2937;margin-bottom:3px">Booking Confirmed!</div>
+  <div style="font-size:13px;color:#6B7280">All providers notified · Schedule auto-set</div>
+  <div style="background:#EEF2FF;border-radius:8px;padding:6px 14px;display:inline-block;font-size:12px;font-weight:700;color:#4F46E5;margin-top:8px">Order #EVT-2024-1042</div>
+</div>
+<div class="pay-badge">
+  <span style="font-size:16px">💳</span>
+  <div style="font-size:13px;font-weight:700;color:#10B981;flex:1">One payment processed · VISA ••1234</div>
+  <div style="font-size:14px;font-weight:700;color:#10B981">SAR 4,850</div>
+</div>
+<div class="section-label">Service Schedule — April 25, 2024</div>
+<div class="tl-card">
+  <div class="tl-row">
+    <div style="width:66px;flex-shrink:0;text-align:right"><div style="font-size:12px;font-weight:700;color:#4F46E5">8:00 AM</div><div style="font-size:10px;color:#9CA3AF">Apr 25</div></div>
+    <div style="display:flex;flex-direction:column;align-items:center;margin:2px 8px 0"><div class="tl-dot" style="background:#4F46E5"></div><div style="width:2px;flex:1;background:#E5E7EB;min-height:20px;margin:3px 0"></div></div>
+    <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#1F2937">🏛️ Al Noor Venue Hall</div><div style="font-size:11px;color:#6B7280;margin-top:2px">Setup & preparation begins</div><span class="chip chip-b">Confirmed</span></div>
+  </div>
+  <div class="tl-row">
+    <div style="width:66px;flex-shrink:0;text-align:right"><div style="font-size:12px;font-weight:700;color:#4F46E5">9:00 AM</div><div style="font-size:10px;color:#9CA3AF">Apr 25</div></div>
+    <div style="display:flex;flex-direction:column;align-items:center;margin:2px 8px 0"><div class="tl-dot" style="background:#D97706"></div><div style="width:2px;flex:1;background:#E5E7EB;min-height:20px;margin:3px 0"></div></div>
+    <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#1F2937">🎀 Elegance Décor Co.</div><div style="font-size:11px;color:#6B7280;margin-top:2px">Decoration & styling team arrives</div><span class="chip chip-p">Awaiting confirmation</span></div>
+  </div>
+  <div class="tl-row">
+    <div style="width:66px;flex-shrink:0;text-align:right"><div style="font-size:12px;font-weight:700;color:#10B981">7:00 PM</div></div>
+    <div style="display:flex;align-items:center;margin:0 8px"><div class="tl-dot" style="background:#10B981"></div></div>
+    <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#1F2937">🎉 Event Begins!</div><div style="font-size:11px;color:#6B7280">Everything is ready for guests</div></div>
+  </div>
+</div>
+<div class="action-row">
+  <button class="action-btn">Track Status</button>
+  <button class="action-btn primary">Dashboard →</button>
+</div>
+</div>
+
+<div class="frame" id="s5_frame">
+  <span class="frame-label">05 — Event Dashboard</span>
+  <div class="status"><span>9:41</span><div class="si"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+<div class="top-hero">
+  <div style="font-size:12px;color:#A5B4FC;font-weight:600;margin-bottom:4px">Event Dashboard</div>
+  <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px">My Events</div>
+  <div style="font-size:12px;color:#C7D2FE">3 upcoming events · 5 providers booked</div>
+</div>
+<div class="metric-row">
+  <div class="metric"><div style="font-size:18px;font-weight:700;color:#4F46E5">3</div><div style="font-size:9px;color:#6B7280;font-weight:600;margin-top:2px;text-transform:uppercase;letter-spacing:0.4px">Events</div></div>
+  <div class="metric"><div style="font-size:18px;font-weight:700;color:#4F46E5">5</div><div style="font-size:9px;color:#6B7280;font-weight:600;margin-top:2px;text-transform:uppercase;letter-spacing:0.4px">Providers</div></div>
+  <div class="metric"><div style="font-size:18px;font-weight:700;color:#4F46E5">8.2K</div><div style="font-size:9px;color:#6B7280;font-weight:600;margin-top:2px;text-transform:uppercase;letter-spacing:0.4px">SAR</div></div>
+  <div class="metric"><div style="font-size:18px;font-weight:700;color:#D97706">2</div><div style="font-size:9px;color:#6B7280;font-weight:600;margin-top:2px;text-transform:uppercase;letter-spacing:0.4px">Pending</div></div>
+</div>
+<div class="section-label">Upcoming Events</div>
+<div class="event-card">
+  <div class="ec-header">
+    <div><div style="font-size:14px;font-weight:700;color:#1F2937">🎉 Sarah's Birthday Party</div><div style="font-size:11px;color:#6B7280">Apr 25 · #EVT-2024-1042</div></div>
+    <span class="chip chip-b">Scheduled</span>
+  </div>
+  <div class="ec-body">
+    <div class="provider-row"><div class="pr-dot" style="background:#10B981"></div><span style="font-size:14px">🏛️</span><div style="font-size:13px;color:#1F2937;flex:1">Al Noor Venue Hall</div><div style="font-size:11px;color:#9CA3AF">Confirmed</div><div style="font-size:13px;font-weight:700;color:#1F2937">SAR 3,500</div></div>
+    <div class="provider-row"><div class="pr-dot" style="background:#D97706"></div><span style="font-size:14px">🎀</span><div style="font-size:13px;color:#1F2937;flex:1">Elegance Décor Co.</div><div style="font-size:11px;color:#9CA3AF">Pending</div><div style="font-size:13px;font-weight:700;color:#1F2937">SAR 1,200</div></div>
+  </div>
+  <div class="ec-footer">
+    <div><div style="font-size:14px;font-weight:700;color:#1F2937">SAR 4,850 total</div><div style="font-size:11px;color:#6B7280">📅 April 25, 2024</div></div>
+    <button style="font-size:12px;font-weight:700;color:#4F46E5;background:none;border:none;font-family:Arial,sans-serif">View →</button>
+  </div>
+</div>
+<div class="event-card">
+  <div class="ec-header">
+    <div><div style="font-size:14px;font-weight:700;color:#1F2937">🎓 Ahmed's Graduation</div><div style="font-size:11px;color:#6B7280">May 3 · #EVT-2024-1038</div></div>
+    <span class="chip chip-p">Pending</span>
+  </div>
+  <div class="ec-body">
+    <div class="provider-row"><div class="pr-dot" style="background:#D97706"></div><span style="font-size:14px">🍽️</span><div style="font-size:13px;color:#1F2937;flex:1">Royal Catering Co.</div><div style="font-size:11px;color:#9CA3AF">Pending</div><div style="font-size:13px;font-weight:700;color:#1F2937">SAR 3,400</div></div>
+  </div>
+  <div class="ec-footer">
+    <div><div style="font-size:14px;font-weight:700;color:#1F2937">SAR 3,400 total</div><div style="font-size:11px;color:#6B7280">📅 May 3, 2024</div></div>
+    <button style="font-size:12px;font-weight:700;color:#4F46E5;background:none;border:none;font-family:Arial,sans-serif">View →</button>
+  </div>
+</div>
+<div class="section-label" style="padding-top:4px">Quick Actions</div>
+<div class="quick-actions">
+  <div class="qa-btn"><div style="font-size:18px;margin-bottom:4px">➕</div><div style="font-size:10px;font-weight:600;color:#6B7280">New Event</div></div>
+  <div class="qa-btn"><div style="font-size:18px;margin-bottom:4px">📋</div><div style="font-size:10px;font-weight:600;color:#6B7280">My Orders</div></div>
+  <div class="qa-btn"><div style="font-size:18px;margin-bottom:4px">🧾</div><div style="font-size:10px;font-weight:600;color:#6B7280">Invoices</div></div>
+  <div class="qa-btn"><div style="font-size:18px;margin-bottom:4px">📊</div><div style="font-size:10px;font-weight:600;color:#6B7280">Reports</div></div>
+</div>
+<div class="tab-bar">
+  <div class="tab-item"><span style="font-size:20px">🏠</span>Home</div>
+  <div class="tab-item active"><span style="font-size:20px">📋</span>Events</div>
+  <div class="tab-item"><span style="font-size:20px">🔔</span>Alerts</div>
+  <div class="tab-item"><span style="font-size:20px">👤</span>Profile</div>
+</div>
+</div>
+
+<div class="frame" id="s6_frame">
+  <span class="frame-label">06 — Service Status</span>
+  <div class="status"><span>9:41</span><div class="si"><span>▋▋▋</span><span>WiFi</span><span>🔋</span></div></div>
+<div class="nav"><span style="color:#4F46E5;font-size:20px">←</span><div style="font-size:20px;font-weight:700;color:#1F2937;flex:1">Service Status</div><span style="font-size:16px">🔔</span></div>
+<div class="event-info">
+  <div><div style="font-size:13px;font-weight:700;color:#4F46E5">🎉 Sarah's Birthday Party</div><div style="font-size:11px;color:#6B7280;margin-top:2px">April 25, 2024 · 2 providers</div></div>
+  <div style="background:#4F46E5;color:#fff;border-radius:10px;padding:6px 12px;text-align:center"><div style="font-size:18px;font-weight:700">2d</div><div style="font-size:9px;opacity:0.8">to event</div></div>
+</div>
+
+<!-- Provider 1: Confirmed -->
+<div class="osc">
+  <div class="osc-header">
+    <div class="osc-icon" style="background:#EEF2FF">🏛️</div>
+    <div><div style="font-size:15px;font-weight:700;color:#1F2937">Al Noor Venue Hall</div><div style="font-size:12px;color:#6B7280">Venue · SAR 3,500</div></div>
+    <span class="chip chip-s">✓ Confirmed</span>
+  </div>
+  <div class="progress-steps">
+    <div class="ps-item"><div class="ps-dot done"></div><div style="font-size:9px;color:#10B981;font-weight:600">Booked</div></div>
+    <div class="ps-item"><div class="ps-dot done"></div><div style="font-size:9px;color:#10B981;font-weight:600">Confirmed</div></div>
+    <div class="ps-item"><div class="ps-dot done"></div><div style="font-size:9px;color:#10B981;font-weight:600">Paid</div></div>
+    <div class="ps-item"><div class="ps-dot" style="border-color:#4F46E5;background:#EEF2FF"></div><div style="font-size:9px;color:#4F46E5;font-weight:600">Event Day</div></div>
+  </div>
+  <div class="pb-bg"><div class="pb-fill" style="width:75%;background:linear-gradient(90deg,#10B981,#4F46E5)"></div></div>
+  <div class="status-note"><span>Setup starts Apr 25 · 8:00 AM</span><span style="font-weight:700;color:#4F46E5">Ready</span></div>
+</div>
+
+<!-- Provider 2: Pending -->
+<div class="osc">
+  <div class="osc-header">
+    <div class="osc-icon" style="background:#FCE7F3">🎀</div>
+    <div><div style="font-size:15px;font-weight:700;color:#1F2937">Elegance Décor Co.</div><div style="font-size:12px;color:#6B7280">Decoration · SAR 1,200</div></div>
+    <span class="chip chip-p">Awaiting</span>
+  </div>
+  <div class="progress-steps">
+    <div class="ps-item"><div class="ps-dot done"></div><div style="font-size:9px;color:#10B981;font-weight:600">Booked</div></div>
+    <div class="ps-item"><div class="ps-dot active"></div><div style="font-size:9px;color:#4F46E5;font-weight:600">Confirm</div></div>
+    <div class="ps-item"><div class="ps-dot"></div><div style="font-size:9px;color:#9CA3AF;font-weight:600">Paid</div></div>
+    <div class="ps-item"><div class="ps-dot"></div><div style="font-size:9px;color:#9CA3AF;font-weight:600">Event Day</div></div>
+  </div>
+  <div class="pb-bg"><div class="pb-fill" style="width:30%;background:linear-gradient(90deg,#10B981,#D97706)"></div></div>
+  <div class="status-note"><span>Provider reviewing your request</span><span style="font-weight:700;color:#D97706">Pending</span></div>
+</div>
+
+<div style="background:#FEF3C7;margin:0 16px;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px">
+  <span style="font-size:18px">⏳</span>
+  <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#D97706">Awaiting provider confirmation</div><div style="font-size:11px;color:#6B7280;margin-top:2px">You'll be notified once Elegance Décor responds</div></div>
+</div>
+
+<div class="tab-bar">
+  <div class="tab-item"><span style="font-size:20px">🏠</span>Home</div>
+  <div class="tab-item"><span style="font-size:20px">📋</span>Events</div>
+  <div class="tab-item active"><span style="font-size:20px">🔔</span>Alerts</div>
+  <div class="tab-item"><span style="font-size:20px">👤</span>Profile</div>
+</div>
+</div>
+
+</body>
+</html>
