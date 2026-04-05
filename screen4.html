@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen 4 – Payment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone">
+
+  <div class="sbar">
+    <span class="sbar-time">9:44</span>
+    <div class="sbar-icons"><span>●●●</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+
+  <div class="nbar">
+    <a href="screen3.html" class="back">←</a>
+    <span class="ntitle">Payment</span>
+  </div>
+
+  <div class="body">
+
+    <!-- stepper -->
+    <div style="padding:14px 20px 10px;">
+      <div style="display:flex;align-items:center;">
+        <div style="display:flex;align-items:center;gap:5px;"><div class="stepn stepn-done">✓</div><span style="font-size:11px;color:#10B981;font-weight:600;">Review</span></div>
+        <div style="flex:1;height:2px;background:#10B981;margin:0 6px;"></div>
+        <div style="display:flex;align-items:center;gap:5px;"><div class="stepn stepn-done">✓</div><span style="font-size:11px;color:#10B981;font-weight:600;">Delivery</span></div>
+        <div style="flex:1;height:2px;background:#10B981;margin:0 6px;"></div>
+        <div style="display:flex;align-items:center;gap:5px;"><div class="stepn stepn-active">3</div><span style="font-size:11px;font-weight:700;color:#4F46E5;">Payment</span></div>
+        <div style="flex:1;height:2px;background:#EEF2FF;margin:0 6px;"></div>
+        <div style="display:flex;align-items:center;gap:5px;"><div class="stepn stepn-idle">4</div><span style="font-size:11px;color:#9CA3AF;">Confirm</span></div>
+      </div>
+    </div>
+
+    <!-- total card -->
+    <div class="sp" style="margin-bottom:4px;">
+      <div style="background:#4F46E5;border-radius:18px;padding:20px;text-align:center;">
+        <div style="font-size:11px;color:rgba(255,255,255,0.7);margin-bottom:5px;">One Unified Payment · 3 Vendors</div>
+        <div style="font-size:30px;font-weight:900;color:#fff;letter-spacing:-0.5px;">71,436 SAR</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.65);margin-top:3px;">Held in escrow until services are delivered</div>
+      </div>
+    </div>
+
+    <div class="sh">Payment Method</div>
+    <div class="sp" style="padding-bottom:4px;">
+
+      <div class="pmrow sel" id="pm1" onclick="pick(1)">
+        <div class="radio on" id="r1"><div class="rdot"></div></div>
+        <span style="font-size:20px;">💳</span>
+        <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:#1F2937;">Credit Card</div><div style="font-size:11px;color:#6B7280;">Visa •••• 4521</div></div>
+        <span class="badge bblue">Default</span>
+      </div>
+
+      <div class="pmrow" id="pm2" onclick="pick(2)">
+        <div class="radio" id="r2"></div>
+        <span style="font-size:20px;">🏦</span>
+        <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:#1F2937;">Bank Transfer (IBAN)</div><div style="font-size:11px;color:#6B7280;">SA03 8000 0000 6080 1016 7519</div></div>
+      </div>
+
+      <div class="pmrow" id="pm3" onclick="pick(3)">
+        <div class="radio" id="r3"></div>
+        <span style="font-size:20px;">📱</span>
+        <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:#1F2937;">Apple Pay</div><div style="font-size:11px;color:#6B7280;">Touch ID or Face ID</div></div>
+      </div>
+
+      <div class="pmrow" id="pm4" onclick="pick(4)">
+        <div class="radio" id="r4"></div>
+        <span style="font-size:20px;">💰</span>
+        <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:#1F2937;">Tabby — Pay Later</div><div style="font-size:11px;color:#6B7280;">4 payments of 17,859 SAR</div></div>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:flex-start;padding:11px;background:#F0FDF4;border-radius:11px;margin-bottom:14px;">
+        <span style="font-size:15px;">🔒</span>
+        <div style="font-size:11px;color:#10B981;line-height:1.5;">Payments are secured and released to vendors only after each service is confirmed delivered.</div>
+      </div>
+    </div>
+
+    <!-- pay button -->
+    <div id="payBtn" class="btn btn-p bw" onclick="pay()" style="cursor:pointer;">Pay 71,436 SAR</div>
+
+    <!-- loading overlay -->
+    <div id="payLoading" style="display:none;position:fixed;inset:0;background:rgba(255,255,255,0.92);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+      <div style="width:48px;height:48px;border-radius:50%;border:3px solid #EEF2FF;border-top-color:#4F46E5;animation:spin 0.8s linear infinite;"></div>
+      <div style="font-size:14px;font-weight:600;color:#1F2937;">Processing payment…</div>
+    </div>
+
+    <div style="height:8px;"></div>
+    <div style="text-align:center;font-size:11px;color:#9CA3AF;padding:0 20px 20px;">By paying you agree to the platform payment terms</div>
+  </div>
+
+</div>
+
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<script>
+function pick(n) {
+  [1,2,3,4].forEach(i => {
+    const pm = document.getElementById('pm'+i);
+    const r = document.getElementById('r'+i);
+    if (i===n) {
+      pm.classList.add('sel');
+      r.classList.add('on');
+      r.innerHTML = '<div class="rdot"></div>';
+    } else {
+      pm.classList.remove('sel');
+      r.classList.remove('on');
+      r.innerHTML = '';
+    }
+  });
+}
+
+function pay() {
+  const overlay = document.getElementById('payLoading');
+  overlay.style.display = 'flex';
+  setTimeout(() => {
+    window.location.href = 'screen5.html';
+  }, 1400);
+}
+</script>
+</body>
+</html>

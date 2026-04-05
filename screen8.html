@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen 8 – All Confirmed</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone">
+
+  <div class="sbar">
+    <span class="sbar-time">10:30</span>
+    <div class="sbar-icons"><span>●●●</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+
+  <div class="nbar">
+    <a href="screen6.html" class="back">←</a>
+    <span class="ntitle">Order Dashboard</span>
+  </div>
+
+  <div class="body">
+
+    <!-- hero green -->
+    <div style="background:#10B981;padding:28px 20px;text-align:center;">
+      <div id="emoji" style="font-size:44px;margin-bottom:9px;transform:scale(0);transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1);">🎉</div>
+      <div style="font-size:20px;font-weight:800;color:#fff;margin-bottom:4px;">All 3 Vendors Confirmed!</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.8);">Your event is fully secured</div>
+    </div>
+
+    <!-- stat cards -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;padding:14px 20px 4px;">
+      <div class="card" style="padding:13px;text-align:center;">
+        <div style="font-size:22px;font-weight:900;color:#10B981;">3/3</div>
+        <div style="font-size:10px;color:#6B7280;margin-top:2px;">Vendors Confirmed</div>
+      </div>
+      <div class="card" style="padding:13px;text-align:center;">
+        <div style="font-size:22px;font-weight:900;color:#4F46E5;">71,436</div>
+        <div style="font-size:10px;color:#6B7280;margin-top:2px;">SAR · Fully Paid</div>
+      </div>
+    </div>
+
+    <div class="sh">Confirmed Vendors</div>
+    <div class="sp" style="margin-bottom:8px;">
+      <div class="card">
+        <div class="row"><span style="font-size:19px;">🌸</span><div class="rb"><div class="rt">Noor Floral Studio</div><div class="rs">14 Rajab · 8:00 AM</div></div><span class="badge bok">✓</span></div>
+        <div class="row"><span style="font-size:19px;">🍽️</span><div class="rb"><div class="rt">Maha Catering Co.</div><div class="rs">15 Rajab · 6:00 AM</div></div><span class="badge bok">✓</span></div>
+        <div class="row"><span style="font-size:19px;">📸</span><div class="rb"><div class="rt">Lens &amp; Light Studio</div><div class="rs">15 Rajab · 5:00 PM</div></div><span class="badge bok">✓</span></div>
+      </div>
+    </div>
+
+    <div class="sh">Upcoming Alerts</div>
+    <div class="sp" style="margin-bottom:14px;">
+      <div class="card" style="padding:0 15px;">
+        <div class="sumrow"><span class="sl">📅 Florals delivery reminder</span><span class="sv" style="font-size:11px;color:#D97706;">13 Rajab</span></div>
+        <div class="sumrow"><span class="sl">📅 Catering check-in call</span><span class="sv" style="font-size:11px;color:#D97706;">14 Rajab</span></div>
+        <div class="sumrow"><span class="sl">🎊 Event Day</span><span class="sv" style="font-size:11px;color:#10B981;">15 Rajab</span></div>
+      </div>
+    </div>
+
+    <a href="screen9.html" class="btn btn-p bw">📄 View Order Receipt →</a>
+    <div style="height:8px;"></div>
+    <div class="btn btn-g bw" onclick="shareOrder()" style="cursor:pointer;">Share with Co-Organizer</div>
+    <div style="height:22px;"></div>
+
+    <div id="toast" style="display:none;position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#1F2937;color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:20px;white-space:nowrap;z-index:999;">Link copied to clipboard 🔗</div>
+  </div>
+
+  <div class="bnav">
+    <div class="bni"><div class="bni-ico">🏠</div><div class="bni-lbl">Home</div></div>
+    <div class="bni"><div class="bni-ico" style="color:#4F46E5;">📋</div><div class="bni-lbl on">Orders</div><div class="bni-dot"></div></div>
+    <a href="screen1.html" class="bni"><div class="bni-ico">🛒</div><div class="bni-lbl">Cart</div></a>
+    <div class="bni"><div class="bni-ico">💬</div><div class="bni-lbl">Messages</div></div>
+    <div class="bni"><div class="bni-ico">👤</div><div class="bni-lbl">Profile</div></div>
+  </div>
+
+</div>
+<script>
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('emoji').style.transform = 'scale(1)';
+  }, 120);
+});
+function shareOrder() {
+  const t = document.getElementById('toast');
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 2200);
+}
+</script>
+</body>
+</html>

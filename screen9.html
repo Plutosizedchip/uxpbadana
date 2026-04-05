@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen 9 – Order Receipt</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone">
+
+  <div class="sbar">
+    <span class="sbar-time">11:00</span>
+    <div class="sbar-icons"><span>●●●</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+
+  <div class="nbar">
+    <a href="screen8.html" class="back">←</a>
+    <span class="ntitle">Order Receipt</span>
+    <span class="naction" onclick="shareReceipt()">Share</span>
+  </div>
+
+  <div class="body" style="padding:15px 20px;">
+
+    <div class="card" style="padding:20px;">
+
+      <!-- receipt header -->
+      <div style="text-align:center;border-bottom:1px dashed #E5E7EB;padding-bottom:14px;margin-bottom:14px;">
+        <div style="font-size:28px;margin-bottom:8px;">🧾</div>
+        <div style="font-size:16px;font-weight:800;color:#1F2937;">Al-Rashidi Wedding</div>
+        <div style="font-size:11px;color:#6B7280;margin-top:3px;">#ORD-2024-8847</div>
+        <div style="margin-top:10px;"><span class="badge bok" style="font-size:11px;padding:4px 14px;">✓ Completed</span></div>
+      </div>
+
+      <!-- services -->
+      <div style="margin-bottom:14px;">
+        <div style="font-size:10px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:9px;">Services</div>
+        <div class="sumrow"><span class="sl">🌸 Noor Floral Studio</span><span class="sv">10,400 SAR</span></div>
+        <div class="sumrow"><span class="sl">🍽️ Maha Catering Co.</span><span class="sv">35,000 SAR</span></div>
+        <div class="sumrow"><span class="sl">📸 Lens &amp; Light Studio</span><span class="sv">15,500 SAR</span></div>
+      </div>
+
+      <!-- fees -->
+      <div style="border-top:1px solid #F0F0F5;padding-top:11px;margin-bottom:13px;">
+        <div class="sumrow"><span class="sl">Subtotal</span><span class="sv">60,900 SAR</span></div>
+        <div class="sumrow"><span class="sl">Platform fee (2%)</span><span class="sv">1,218 SAR</span></div>
+        <div class="sumrow"><span class="sl">VAT 15% (ZATCA)</span><span class="sv">9,318 SAR</span></div>
+      </div>
+
+      <!-- total -->
+      <div style="background:#EEF2FF;border-radius:11px;padding:13px;display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;">
+        <div style="font-size:14px;font-weight:700;color:#4F46E5;">Total</div>
+        <div style="font-size:19px;font-weight:900;color:#4F46E5;">71,436 SAR</div>
+      </div>
+
+      <!-- payment meta -->
+      <div style="border-top:1px dashed #E5E7EB;padding-top:12px;">
+        <div class="sumrow"><span class="sl">Payment</span><span class="sv" style="font-size:11px;">Visa •••• 4521</span></div>
+        <div class="sumrow"><span class="sl">Date Paid</span><span class="sv" style="font-size:11px;">10 Rajab 1447</span></div>
+        <div class="sumrow"><span class="sl">Event Date</span><span class="sv" style="font-size:11px;">15 Rajab 1447</span></div>
+      </div>
+    </div>
+
+    <div style="height:14px;"></div>
+    <div class="btn btn-p" style="width:100%;" onclick="savePDF()">📥 Save as PDF</div>
+    <div style="height:8px;"></div>
+    <a href="screen10.html" class="btn btn-g" style="width:100%;">⭐ Rate Your Experience →</a>
+    <div style="height:22px;"></div>
+
+    <div id="toast" style="display:none;position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#1F2937;color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:20px;white-space:nowrap;z-index:999;"></div>
+  </div>
+
+</div>
+<script>
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 2200);
+}
+function shareReceipt() { toast('Receipt shared via WhatsApp ✓'); }
+function savePDF() { toast('PDF saved to your Files app 📄'); }
+</script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen 3 – Delivery Schedule</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone">
+
+  <div class="sbar">
+    <span class="sbar-time">9:43</span>
+    <div class="sbar-icons"><span>●●●</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+
+  <div class="nbar">
+    <a href="screen2.html" class="back">←</a>
+    <span class="ntitle">Delivery Schedule</span>
+  </div>
+
+  <div class="body">
+
+    <!-- stepper -->
+    <div style="padding:14px 20px 10px;">
+      <div style="display:flex;align-items:center;">
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div class="stepn stepn-done">✓</div>
+          <span style="font-size:11px;color:#10B981;font-weight:600;">Review</span>
+        </div>
+        <div style="flex:1;height:2px;background:#10B981;margin:0 6px;"></div>
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div class="stepn stepn-active">2</div>
+          <span style="font-size:11px;font-weight:700;color:#4F46E5;">Delivery</span>
+        </div>
+        <div style="flex:1;height:2px;background:#EEF2FF;margin:0 6px;"></div>
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div class="stepn stepn-idle">3</div>
+          <span style="font-size:11px;color:#9CA3AF;">Payment</span>
+        </div>
+        <div style="flex:1;height:2px;background:#EEF2FF;margin:0 6px;"></div>
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div class="stepn stepn-idle">4</div>
+          <span style="font-size:11px;color:#9CA3AF;">Confirm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- auto-schedule banner -->
+    <div style="margin:4px 20px 0;background:#EEF2FF;border-radius:13px;padding:12px 14px;display:flex;gap:11px;align-items:flex-start;">
+      <div style="font-size:20px;">⚡</div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:#4F46E5;margin-bottom:2px;">Smart Auto-Schedule Active</div>
+        <div style="font-size:11px;color:#6B7280;line-height:1.5;">Arrival times are set automatically based on your event date. You can still edit each one below.</div>
+      </div>
+    </div>
+
+    <div class="sh">Delivery Timeline</div>
+    <div class="sp" style="display:flex;flex-direction:column;gap:10px;">
+
+      <!-- vendor 1 - auto set -->
+      <div class="card" style="padding:12px 14px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px;">
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#1F2937;">🌸 Noor Floral Studio</div>
+            <div style="font-size:11px;color:#6B7280;margin-top:2px;">Bridal Bouquet + Centerpieces</div>
+          </div>
+          <span class="badge bok">Auto-set ✓</span>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span style="font-size:11px;color:#6B7280;">Arrives:</span>
+          <div style="background:#D1FAE5;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;color:#10B981;">14 Rajab · 8:00 AM</div>
+        </div>
+      </div>
+
+      <!-- vendor 2 - editable -->
+      <div class="card" style="padding:12px 14px;cursor:pointer;" onclick="showPicker('catering')">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px;">
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#1F2937;">🍽️ Maha Catering Co.</div>
+            <div style="font-size:11px;color:#6B7280;margin-top:2px;">Wedding Buffet Setup</div>
+          </div>
+          <span class="badge bwarn" id="cateringBadge">Tap to Edit</span>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span style="font-size:11px;color:#6B7280;">Arrives:</span>
+          <div style="background:#FEF3C7;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;color:#D97706;" id="cateringTime">15 Rajab · 6:00 AM</div>
+          <span style="font-size:11px;color:#D97706;font-weight:600;margin-left:auto;">Edit ›</span>
+        </div>
+      </div>
+
+      <!-- vendor 3 - editable -->
+      <div class="card" style="padding:12px 14px;cursor:pointer;" onclick="showPicker('photo')">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px;">
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#1F2937;">📸 Lens &amp; Light Studio</div>
+            <div style="font-size:11px;color:#6B7280;margin-top:2px;">Photography Team</div>
+          </div>
+          <span class="badge bwarn" id="photoBadge">Tap to Edit</span>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span style="font-size:11px;color:#6B7280;">Arrives:</span>
+          <div style="background:#FEF3C7;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;color:#D97706;" id="photoTime">15 Rajab · 5:00 PM</div>
+          <span style="font-size:11px;color:#D97706;font-weight:600;margin-left:auto;">Edit ›</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sh">Delivery Address</div>
+    <div class="sp" style="margin-bottom:14px;">
+      <div class="card" style="padding:13px 15px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span style="font-size:18px;">📍</span>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#1F2937;">Al Riyadh Hall</div>
+              <div style="font-size:11px;color:#6B7280;margin-top:2px;line-height:1.4;">King Fahd Rd, Al Malaz<br>Riyadh 12836</div>
+            </div>
+          </div>
+          <span style="font-size:12px;font-weight:600;color:#4F46E5;">Change</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="screen4.html" class="btn btn-p bw">Continue to Payment →</a>
+    <div style="height:22px;"></div>
+  </div>
+
+</div>
+
+<!-- bottom sheet overlay -->
+<div id="sheet" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:100;align-items:flex-end;justify-content:center;" onclick="closeSheet(event)">
+  <div style="background:#fff;border-radius:24px 24px 0 0;padding:20px 20px 36px;width:390px;" onclick="event.stopPropagation()">
+    <div style="width:36px;height:4px;border-radius:2px;background:#E5E7EB;margin:0 auto 16px;"></div>
+    <div style="font-size:15px;font-weight:700;color:#1F2937;margin-bottom:14px;" id="sheetTitle">Edit Arrival Time</div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <div class="timeopt" onclick="setTime('catering','15 Rajab · 5:00 AM')">15 Rajab · 5:00 AM</div>
+      <div class="timeopt" onclick="setTime('catering','15 Rajab · 6:00 AM')" style="border-color:#4F46E5;background:#EEF2FF;color:#4F46E5;font-weight:700;">15 Rajab · 6:00 AM ✓</div>
+      <div class="timeopt" onclick="setTime('catering','15 Rajab · 7:00 AM')">15 Rajab · 7:00 AM</div>
+      <div class="timeopt" onclick="setTime('catering','15 Rajab · 8:00 AM')">15 Rajab · 8:00 AM</div>
+    </div>
+  </div>
+</div>
+
+<style>
+.timeopt { padding:13px 15px;border-radius:12px;border:1.5px solid #F0F0F5;font-size:13px;color:#1F2937;cursor:pointer;background:#fff;transition:all 0.15s; }
+.timeopt:active { background:#EEF2FF; }
+#sheet { display:none; }
+#sheet.open { display:flex; }
+</style>
+
+<script>
+let activeVendor = null;
+function showPicker(vendor) {
+  activeVendor = vendor;
+  document.getElementById('sheet').classList.add('open');
+  document.getElementById('sheetTitle').textContent = vendor === 'catering' ? 'Edit Catering Arrival' : 'Edit Photography Arrival';
+}
+function closeSheet(e) {
+  document.getElementById('sheet').classList.remove('open');
+}
+function setTime(v, t) {
+  if (activeVendor === 'catering') {
+    document.getElementById('cateringTime').textContent = t;
+    document.getElementById('cateringBadge').textContent = 'Updated ✓';
+    document.getElementById('cateringBadge').className = 'badge bok';
+  } else {
+    document.getElementById('photoTime').textContent = t;
+    document.getElementById('photoBadge').textContent = 'Updated ✓';
+    document.getElementById('photoBadge').className = 'badge bok';
+  }
+  closeSheet();
+}
+</script>
+</body>
+</html>

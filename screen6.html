@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen 6 – Order Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone">
+
+  <div class="sbar">
+    <span class="sbar-time">9:46</span>
+    <div class="sbar-icons"><span>●●●</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+
+  <div class="nbar">
+    <a href="screen5.html" class="back">←</a>
+    <span class="ntitle">Order Dashboard</span>
+    <span class="naction">Filter</span>
+  </div>
+
+  <div class="body">
+
+    <!-- hero strip -->
+    <div style="background:#4F46E5;padding:14px 20px 18px;">
+      <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-bottom:9px;">#ORD-2024-8847 · Al-Rashidi Wedding</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+        <div style="background:rgba(255,255,255,0.14);border-radius:11px;padding:10px;text-align:center;">
+          <div style="font-size:18px;font-weight:900;color:#fff;">3</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.6);">Vendors</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.14);border-radius:11px;padding:10px;text-align:center;">
+          <div style="font-size:18px;font-weight:900;color:#fff;">1</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.6);">Confirmed</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.14);border-radius:11px;padding:10px;text-align:center;">
+          <div style="font-size:18px;font-weight:900;color:#fff;">2</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.6);">Pending</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- overall progress -->
+    <div style="margin:14px 20px 0;">
+      <div class="card" style="padding:13px 15px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:7px;">
+          <span style="font-size:12px;font-weight:700;color:#1F2937;">Overall Confirmation</span>
+          <span style="font-size:12px;font-weight:700;color:#4F46E5;">33%</span>
+        </div>
+        <div class="pbar"><div class="pfill" style="width:33%;background:#4F46E5;"></div></div>
+        <div style="font-size:10px;color:#6B7280;margin-top:5px;">1 of 3 vendors confirmed · Est. 18h remaining</div>
+      </div>
+    </div>
+
+    <div class="sh">Vendor Status</div>
+    <div class="sp" style="margin-bottom:8px;">
+      <div class="card">
+
+        <!-- confirmed -->
+        <a href="screen7.html" style="text-decoration:none;">
+          <div style="padding:13px 15px;border-bottom:1px solid #F8F9FA;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <span style="font-size:19px;">🌸</span>
+                <div>
+                  <div style="font-size:12px;font-weight:700;color:#1F2937;">Noor Floral Studio</div>
+                  <div style="font-size:10px;color:#6B7280;">Confirmed 30 min ago · Tap for details</div>
+                </div>
+              </div>
+              <span class="badge bok">✓ Confirmed</span>
+            </div>
+            <div class="pbar"><div class="pfill" style="width:100%;background:#10B981;"></div></div>
+          </div>
+        </a>
+
+        <!-- pending 1 -->
+        <a href="screen7.html" style="text-decoration:none;">
+          <div style="padding:13px 15px;border-bottom:1px solid #F8F9FA;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <span style="font-size:19px;">🍽️</span>
+                <div>
+                  <div style="font-size:12px;font-weight:700;color:#1F2937;">Maha Catering Co.</div>
+                  <div style="font-size:10px;color:#6B7280;">Awaiting response · Tap for details</div>
+                </div>
+              </div>
+              <span class="badge bwarn">Pending</span>
+            </div>
+            <div class="pbar"><div class="pfill" style="width:15%;background:#D97706;"></div></div>
+          </div>
+        </a>
+
+        <!-- pending 2 -->
+        <a href="screen7.html" style="text-decoration:none;">
+          <div style="padding:13px 15px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <span style="font-size:19px;">📸</span>
+                <div>
+                  <div style="font-size:12px;font-weight:700;color:#1F2937;">Lens &amp; Light Studio</div>
+                  <div style="font-size:10px;color:#6B7280;">Awaiting response · Tap for details</div>
+                </div>
+              </div>
+              <span class="badge bwarn">Pending</span>
+            </div>
+            <div class="pbar"><div class="pfill" style="width:15%;background:#D97706;"></div></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="sh">Delivery Schedule</div>
+    <div class="sp" style="margin-bottom:14px;">
+      <div class="card" style="padding:0 15px;">
+        <div class="sumrow"><span class="sl">🌸 Florals arrive</span><span class="sv" style="font-size:11px;">14 Rajab · 8:00 AM</span></div>
+        <div class="sumrow"><span class="sl">🍽️ Catering setup</span><span class="sv" style="font-size:11px;">15 Rajab · 6:00 AM</span></div>
+        <div class="sumrow"><span class="sl">📸 Photo team</span><span class="sv" style="font-size:11px;">15 Rajab · 5:00 PM</span></div>
+      </div>
+    </div>
+
+    <div class="btn btn-p bw" onclick="showReminder()" style="cursor:pointer;">Send Reminders to Vendors</div>
+    <div style="height:8px;"></div>
+    <a href="screen8.html" class="btn btn-g bw">All Confirmed — View Full Status →</a>
+    <div style="height:22px;"></div>
+
+    <div id="toast" style="display:none;position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:#1F2937;color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:20px;white-space:nowrap;z-index:999;">Reminders sent to 2 vendors 📨</div>
+  </div>
+
+  <div class="bnav">
+    <div class="bni"><div class="bni-ico">🏠</div><div class="bni-lbl">Home</div></div>
+    <div class="bni"><div class="bni-ico" style="color:#4F46E5;">📋</div><div class="bni-lbl on">Orders</div><div class="bni-dot"></div></div>
+    <a href="screen1.html" class="bni"><div class="bni-ico">🛒</div><div class="bni-lbl">Cart</div></a>
+    <div class="bni"><div class="bni-ico">💬</div><div class="bni-lbl">Messages</div></div>
+    <div class="bni"><div class="bni-ico">👤</div><div class="bni-lbl">Profile</div></div>
+  </div>
+
+</div>
+<script>
+function showReminder() {
+  const t = document.getElementById('toast');
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 2500);
+}
+</script>
+</body>
+</html>

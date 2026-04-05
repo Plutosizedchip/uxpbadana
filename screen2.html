@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen 2 – Checkout</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone">
+
+  <div class="sbar">
+    <span class="sbar-time">9:42</span>
+    <div class="sbar-icons"><span>●●●</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+
+  <div class="nbar">
+    <a href="screen1.html" class="back">←</a>
+    <span class="ntitle">Checkout</span>
+  </div>
+
+  <div class="body">
+
+    <!-- stepper -->
+    <div style="padding:14px 20px 10px;">
+      <div style="display:flex;align-items:center;">
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div class="stepn stepn-active">1</div>
+          <span style="font-size:11px;font-weight:700;color:#4F46E5;">Review</span>
+        </div>
+        <div style="flex:1;height:2px;background:#EEF2FF;margin:0 6px;"></div>
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div class="stepn stepn-idle">2</div>
+          <span style="font-size:11px;color:#9CA3AF;">Delivery</span>
+        </div>
+        <div style="flex:1;height:2px;background:#EEF2FF;margin:0 6px;"></div>
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div class="stepn stepn-idle">3</div>
+          <span style="font-size:11px;color:#9CA3AF;">Payment</span>
+        </div>
+        <div style="flex:1;height:2px;background:#EEF2FF;margin:0 6px;"></div>
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div class="stepn stepn-idle">4</div>
+          <span style="font-size:11px;color:#9CA3AF;">Confirm</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sh">Order Summary</div>
+    <div class="sp" style="margin-bottom:10px;">
+      <div class="card">
+        <div class="row"><span style="font-size:17px;">🌸</span><div class="rb"><div class="rt">Noor Floral Studio</div><div class="rs">2 items</div></div><div class="ramt">10,400 SAR</div></div>
+        <div class="row"><span style="font-size:17px;">🍽️</span><div class="rb"><div class="rt">Maha Catering Co.</div><div class="rs">1 item</div></div><div class="ramt">35,000 SAR</div></div>
+        <div class="row"><span style="font-size:17px;">📸</span><div class="rb"><div class="rt">Lens &amp; Light Studio</div><div class="rs">2 items</div></div><div class="ramt">15,500 SAR</div></div>
+      </div>
+    </div>
+
+    <div class="sh">Event Details</div>
+    <div class="sp" style="margin-bottom:10px;">
+      <div class="card" style="padding:0 16px;">
+        <div class="sumrow"><span class="sl">Event Name</span><span class="sv" style="font-size:12px;">Al-Rashidi Wedding</span></div>
+        <div class="sumrow"><span class="sl">Date</span><span class="sv" style="font-size:12px;">15 Rajab 1447</span></div>
+        <div class="sumrow"><span class="sl">Venue</span><span class="sv" style="font-size:12px;">Al Riyadh Hall</span></div>
+        <div class="sumrow"><span class="sl">Guests</span><span class="sv" style="font-size:12px;">200</span></div>
+      </div>
+    </div>
+
+    <div class="sh">Promo Code</div>
+    <div class="sp" style="margin-bottom:10px;">
+      <div style="display:flex;gap:9px;">
+        <div style="flex:1;background:#fff;border-radius:11px;border:1px solid #E5E7EB;padding:13px 15px;font-size:13px;color:#9CA3AF;">Enter promo code</div>
+        <div style="background:#EEF2FF;border-radius:11px;padding:13px 16px;font-size:13px;font-weight:700;color:#4F46E5;cursor:pointer;" onclick="applyPromo()">Apply</div>
+      </div>
+      <div id="promoMsg" style="display:none;margin-top:8px;background:#D1FAE5;border-radius:10px;padding:9px 13px;font-size:12px;color:#10B981;font-weight:600;">✓ Promo WEDDING10 applied!</div>
+    </div>
+
+    <div class="dvd"></div>
+    <div class="sp" style="padding-top:14px;">
+      <div class="card" style="padding:0 16px;">
+        <div class="sumrow"><span class="sl">Subtotal</span><span class="sv">60,900 SAR</span></div>
+        <div class="sumrow"><span class="sl">Platform fee (2%)</span><span class="sv">1,218 SAR</span></div>
+        <div class="sumrow"><span class="sl">VAT (15%)</span><span class="sv">9,318 SAR</span></div>
+        <div class="sumrow"><span class="sl" style="font-size:14px;font-weight:700;color:#1F2937;">Total</span><span class="sv" style="font-size:15px;color:#4F46E5;">71,436 SAR</span></div>
+      </div>
+    </div>
+
+    <div style="height:14px;"></div>
+    <a href="screen3.html" class="btn btn-p bw">Continue to Delivery →</a>
+    <div style="height:22px;"></div>
+  </div>
+
+</div>
+<script>
+function applyPromo() {
+  document.getElementById('promoMsg').style.display = 'block';
+}
+</script>
+</body>
+</html>

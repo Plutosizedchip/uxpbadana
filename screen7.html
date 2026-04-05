@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen 7 – Vendor Detail</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone">
+
+  <div class="sbar">
+    <span class="sbar-time">9:47</span>
+    <div class="sbar-icons"><span>●●●</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+
+  <div class="nbar">
+    <a href="screen6.html" class="back">←</a>
+    <span class="ntitle">Maha Catering Co.</span>
+  </div>
+
+  <div class="body">
+
+    <!-- vendor header -->
+    <div style="background:#fff;padding:14px 20px;border-bottom:1px solid #F0F0F5;display:flex;gap:13px;align-items:center;">
+      <div style="width:54px;height:54px;border-radius:15px;background:#FEF3C7;display:flex;align-items:center;justify-content:center;font-size:27px;">🍽️</div>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:#1F2937;">Maha Catering Co.</div>
+        <div style="font-size:11px;color:#6B7280;margin-top:2px;">Catering · Riyadh, KSA</div>
+        <div style="display:flex;gap:6px;margin-top:6px;">
+          <span class="badge bwarn">⏳ Pending</span>
+          <span class="badge bblue">⭐ 4.8</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sh">Order Items</div>
+    <div class="sp" style="margin-bottom:8px;">
+      <div class="card">
+        <div class="row">
+          <div class="rico">🥘</div>
+          <div class="rb"><div class="rt">Wedding Buffet Package</div><div class="rs">200 guests · Full setup &amp; service</div></div>
+          <div class="ramt">35,000 SAR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sh">Delivery Details</div>
+    <div class="sp" style="margin-bottom:8px;">
+      <div class="card" style="padding:0 15px;">
+        <div class="sumrow"><span class="sl">Setup Date</span><span class="sv">15 Rajab 1447</span></div>
+        <div class="sumrow"><span class="sl">Arrival Time</span><span class="sv">6:00 AM</span></div>
+        <div class="sumrow"><span class="sl">Address</span><span class="sv" style="font-size:11px;">Al Riyadh Hall, King Fahd Rd</span></div>
+        <div class="sumrow"><span class="sl">Contact</span><span class="sv" style="font-size:11px;">Dana Al-Rashidi</span></div>
+      </div>
+    </div>
+
+    <div class="sh">Confirmation Steps</div>
+    <div class="sp" style="margin-bottom:8px;">
+      <div class="card" style="padding:14px 15px;">
+
+        <div style="display:flex;gap:11px;align-items:flex-start;margin-bottom:14px;">
+          <div class="stepn stepn-done">✓</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#1F2937;">Order Sent to Vendor</div>
+            <div style="font-size:10px;color:#6B7280;margin-top:2px;">Today · 9:45 AM</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:11px;align-items:flex-start;margin-bottom:14px;">
+          <div class="stepn stepn-active">2</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#1F2937;">Awaiting Vendor Confirmation</div>
+            <div style="font-size:10px;color:#6B7280;margin-top:2px;">Expected within 24 hours</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:11px;align-items:flex-start;margin-bottom:14px;">
+          <div class="stepn stepn-idle">3</div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:#9CA3AF;">Payment Released to Vendor</div>
+            <div style="font-size:10px;color:#9CA3AF;margin-top:2px;">Happens after vendor confirms</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:11px;align-items:flex-start;">
+          <div class="stepn stepn-idle">4</div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:#9CA3AF;">Service Delivered</div>
+            <div style="font-size:10px;color:#9CA3AF;margin-top:2px;">15 Rajab 1447 · You confirm receipt</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:9px;padding:8px 20px 20px;">
+      <div class="btn btn-p" style="width:100%;" onclick="showMsg()">💬 Message Vendor</div>
+      <div class="btn btn-g" style="width:100%;" onclick="showReminder()">Send Reminder</div>
+      <a href="screen6.html" class="btn btn-d" style="width:100%;">Cancel This Item</a>
+    </div>
+
+    <div id="toast" style="display:none;position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#1F2937;color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:20px;white-space:nowrap;z-index:999;"></div>
+  </div>
+
+</div>
+<script>
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 2200);
+}
+function showMsg() { toast('Opening chat with Maha Catering…'); }
+function showReminder() { toast('Reminder sent via SMS & app ✓'); }
+</script>
+</body>
+</html>
