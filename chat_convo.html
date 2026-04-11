@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat – Maha Catering</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.chat-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #F8F9FA;
+  scrollbar-width: none;
+}
+.chat-area::-webkit-scrollbar { display: none; }
+
+/* date divider */
+.date-div {
+  text-align: center;
+  font-size: 11px; color: #9CA3AF;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+/* vendor message (left) */
+.msg-vendor {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  max-width: 78%;
+}
+.msg-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #FEF3C7;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+.bubble-vendor {
+  background: #fff;
+  border-radius: 16px 16px 16px 4px;
+  padding: 10px 13px;
+  font-size: 13px; color: #1F2937; line-height: 1.5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.bubble-time { font-size: 10px; color: #9CA3AF; margin-top: 3px; padding-left: 2px; }
+
+/* user message (right) */
+.msg-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-end;
+  max-width: 78%;
+}
+.bubble-user {
+  background: #4F46E5;
+  border-radius: 16px 16px 4px 16px;
+  padding: 10px 13px;
+  font-size: 13px; color: #fff; line-height: 1.5;
+}
+.bubble-time-user { font-size: 10px; color: #9CA3AF; margin-top: 3px; text-align: right; }
+
+/* order card in chat */
+.order-card-msg {
+  background: #EEF2FF;
+  border-radius: 12px;
+  padding: 11px 13px;
+  font-size: 12px; color: #1F2937;
+  border-left: 3px solid #4F46E5;
+  margin-bottom: 2px;
+}
+.order-card-msg .oc-label { font-size: 10px; font-weight: 700; color: #4F46E5; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+.order-card-msg .oc-row { display: flex; justify-content: space-between; font-size: 12px; margin-top: 3px; }
+.oc-key { color: #6B7280; }
+.oc-val { font-weight: 600; color: #1F2937; }
+
+/* quick replies */
+.quick-replies {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 0 16px 10px;
+}
+.qr {
+  background: #EEF2FF;
+  border-radius: 20px;
+  padding: 7px 14px;
+  font-size: 12px; font-weight: 600; color: #4F46E5;
+  cursor: pointer;
+  border: none;
+  transition: all 0.12s;
+  white-space: nowrap;
+}
+.qr:active { background: #4F46E5; color: #fff; }
+
+/* input bar */
+.input-bar {
+  background: #fff;
+  padding: 10px 16px 12px;
+  border-top: 1px solid #F0F0F5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.attach-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #F0F0F5;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; cursor: pointer; flex-shrink: 0;
+  transition: background 0.12s;
+}
+.attach-btn:active { background: #EEF2FF; }
+.msg-input {
+  flex: 1;
+  background: #F8F9FA;
+  border-radius: 20px;
+  border: 1px solid #E5E7EB;
+  padding: 9px 15px;
+  font-size: 13px; color: #1F2937;
+  outline: none;
+  font-family: inherit;
+}
+.send-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #4F46E5;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; cursor: pointer; flex-shrink: 0;
+  border: none;
+  transition: all 0.12s;
+}
+.send-btn:active { transform: scale(0.9); }
+
+/* typing indicator */
+.typing {
+  display: flex; gap: 4px; align-items: center;
+  padding: 4px 0;
+}
+.typing span {
+  width: 7px; height: 7px; border-radius: 50%; background: #9CA3AF;
+  animation: bounce 1.2s infinite;
+}
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-5px); }
+}
+</style>
+</head>
+<body>
+<div class="phone" style="min-height:844px;">
+
+  <div class="sbar">
+    <span class="sbar-time">9:49</span>
+    <div class="sbar-icons"><span>●●●</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+
+  <!-- vendor nav header -->
+  <div style="background:#fff;padding:10px 16px 12px;display:flex;align-items:center;gap:11px;border-bottom:1px solid #F0F0F5;flex-shrink:0;">
+    <a href="chat_inbox.html" class="back" style="flex-shrink:0;">←</a>
+    <div style="width:38px;height:38px;border-radius:50%;background:#FEF3C7;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;position:relative;">
+      🍽️
+      <div style="position:absolute;bottom:0;right:0;width:10px;height:10px;border-radius:50%;background:#10B981;border:2px solid #fff;"></div>
+    </div>
+    <div style="flex:1;min-width:0;">
+      <div style="font-size:14px;font-weight:700;color:#1F2937;">Maha Catering Co.</div>
+      <div style="font-size:11px;color:#10B981;font-weight:600;">Online now</div>
+    </div>
+    <a href="screen7.html" style="background:#EEF2FF;border-radius:9px;padding:6px 10px;font-size:11px;font-weight:600;color:#4F46E5;text-decoration:none;">View Order</a>
+  </div>
+
+  <!-- order summary strip -->
+  <div style="background:#EEF2FF;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;border-bottom:1px solid #dde3ff;">
+    <div style="font-size:11px;color:#4F46E5;font-weight:600;">📋 #ORD-2024-8847 · Wedding Buffet Package</div>
+    <span class="badge bwarn">⏳ Pending</span>
+  </div>
+
+  <!-- messages -->
+  <div class="chat-area" id="chatArea">
+
+    <div class="date-div">Today · 9:45 AM</div>
+
+    <!-- system message -->
+    <div style="text-align:center;padding:6px 16px;">
+      <div style="display:inline-block;background:#F0F0F5;border-radius:10px;padding:6px 12px;font-size:11px;color:#6B7280;line-height:1.5;">
+        You placed an order with Maha Catering Co.<br>They have 24h to confirm.
+      </div>
+    </div>
+
+    <!-- vendor message 1 -->
+    <div class="msg-vendor">
+      <div class="msg-avatar">🍽️</div>
+      <div>
+        <div class="bubble-vendor">Hello! We received your order for the wedding buffet on 15 Rajab. Thank you for choosing us 🙏</div>
+        <div class="bubble-time">9:46</div>
+      </div>
+    </div>
+
+    <!-- order details card from vendor -->
+    <div class="msg-vendor">
+      <div class="msg-avatar">🍽️</div>
+      <div style="max-width:240px;">
+        <div class="order-card-msg">
+          <div class="oc-label">Order Summary</div>
+          <div class="oc-row"><span class="oc-key">Package</span><span class="oc-val">Wedding Buffet</span></div>
+          <div class="oc-row"><span class="oc-key">Guests</span><span class="oc-val">200 people</span></div>
+          <div class="oc-row"><span class="oc-key">Date</span><span class="oc-val">15 Rajab</span></div>
+          <div class="oc-row"><span class="oc-key">Amount</span><span class="oc-val">35,000 SAR</span></div>
+        </div>
+        <div class="bubble-time">9:46</div>
+      </div>
+    </div>
+
+    <!-- vendor question -->
+    <div class="msg-vendor">
+      <div class="msg-avatar">🍽️</div>
+      <div>
+        <div class="bubble-vendor">Can you confirm the guest count is still 200? And do you need a vegetarian option?</div>
+        <div class="bubble-time">9:48</div>
+      </div>
+    </div>
+
+    <!-- user reply -->
+    <div class="msg-user">
+      <div class="bubble-user">Yes, 200 guests is confirmed. And yes please, we need about 30 vegetarian plates 🌿</div>
+      <div class="bubble-time-user">9:49 ✓✓</div>
+    </div>
+
+    <!-- typing indicator -->
+    <div class="msg-vendor" id="typingIndicator">
+      <div class="msg-avatar">🍽️</div>
+      <div>
+        <div class="bubble-vendor" style="padding:12px 16px;">
+          <div class="typing"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- quick replies -->
+  <div class="quick-replies">
+    <button class="qr" onclick="sendQuick('Perfect, thank you!')">Perfect, thank you!</button>
+    <button class="qr" onclick="sendQuick('Can you confirm ASAP?')">Can you confirm ASAP?</button>
+    <button class="qr" onclick="sendQuick('We need an earlier arrival time')">Earlier arrival?</button>
+  </div>
+
+  <!-- input bar -->
+  <div class="input-bar">
+    <div class="attach-btn" onclick="openAttach()">📎</div>
+    <input class="msg-input" id="msgInput" type="text" placeholder="Type a message…" />
+    <button class="send-btn" onclick="sendMsg()">➤</button>
+  </div>
+
+</div>
+
+<!-- attachment sheet -->
+<div id="attachSheet" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:100;align-items:flex-end;justify-content:center;" onclick="closeAttach(event)">
+  <div style="background:#fff;border-radius:24px 24px 0 0;padding:20px 20px 40px;width:390px;" onclick="event.stopPropagation()">
+    <div style="width:36px;height:4px;border-radius:2px;background:#E5E7EB;margin:0 auto 18px;"></div>
+    <div style="font-size:14px;font-weight:700;color:#1F2937;margin-bottom:16px;">Send Attachment</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+      <div onclick="closeAttach();showToast('Opening camera…')" style="display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;">
+        <div style="width:52px;height:52px;border-radius:15px;background:#EEF2FF;display:flex;align-items:center;justify-content:center;font-size:24px;">📷</div>
+        <span style="font-size:11px;font-weight:600;color:#6B7280;">Camera</span>
+      </div>
+      <div onclick="closeAttach();showToast('Opening photo library…')" style="display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;">
+        <div style="width:52px;height:52px;border-radius:15px;background:#EEF2FF;display:flex;align-items:center;justify-content:center;font-size:24px;">🖼️</div>
+        <span style="font-size:11px;font-weight:600;color:#6B7280;">Photos</span>
+      </div>
+      <div onclick="closeAttach();showToast('Opening Files…')" style="display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;">
+        <div style="width:52px;height:52px;border-radius:15px;background:#EEF2FF;display:flex;align-items:center;justify-content:center;font-size:24px;">📄</div>
+        <span style="font-size:11px;font-weight:600;color:#6B7280;">Document</span>
+      </div>
+      <div onclick="closeAttach();sendOrderCard()" style="display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;">
+        <div style="width:52px;height:52px;border-radius:15px;background:#EEF2FF;display:flex;align-items:center;justify-content:center;font-size:24px;">📋</div>
+        <span style="font-size:11px;font-weight:600;color:#6B7280;">Order Card</span>
+      </div>
+      <div onclick="closeAttach();showToast('Opening location picker…')" style="display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;">
+        <div style="width:52px;height:52px;border-radius:15px;background:#EEF2FF;display:flex;align-items:center;justify-content:center;font-size:24px;">📍</div>
+        <span style="font-size:11px;font-weight:600;color:#6B7280;">Location</span>
+      </div>
+      <div onclick="closeAttach();showToast('Opening contact card…')" style="display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;">
+        <div style="width:52px;height:52px;border-radius:15px;background:#EEF2FF;display:flex;align-items:center;justify-content:center;font-size:24px;">👤</div>
+        <span style="font-size:11px;font-weight:600;color:#6B7280;">Contact</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" style="display:none;position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#1F2937;color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:20px;white-space:nowrap;z-index:999;"></div>
+
+<style>
+#attachSheet { display: none; }
+#attachSheet.open { display: flex; }
+</style>
+
+<script>
+// Remove typing bubble after delay
+setTimeout(() => {
+  const t = document.getElementById('typingIndicator');
+  if (t) t.remove();
+  appendVendorMsg("Got it! 30 vegetarian plates noted. We'll confirm the full order by end of day 👍");
+}, 2200);
+
+function appendVendorMsg(text) {
+  const area = document.getElementById('chatArea');
+  const div = document.createElement('div');
+  div.className = 'msg-vendor';
+  div.innerHTML = `
+    <div class="msg-avatar">🍽️</div>
+    <div>
+      <div class="bubble-vendor">${text}</div>
+      <div class="bubble-time">${getTime()}</div>
+    </div>`;
+  area.appendChild(div);
+  area.scrollTop = area.scrollHeight;
+}
+
+function sendMsg() {
+  const input = document.getElementById('msgInput');
+  const text = input.value.trim();
+  if (!text) return;
+  appendUserMsg(text);
+  input.value = '';
+}
+
+function sendQuick(text) {
+  appendUserMsg(text);
+}
+
+function appendUserMsg(text) {
+  const area = document.getElementById('chatArea');
+  const div = document.createElement('div');
+  div.className = 'msg-user';
+  div.innerHTML = `
+    <div class="bubble-user">${text}</div>
+    <div class="bubble-time-user">${getTime()} ✓✓</div>`;
+  area.appendChild(div);
+  area.scrollTop = area.scrollHeight;
+}
+
+function sendOrderCard() {
+  const area = document.getElementById('chatArea');
+  const div = document.createElement('div');
+  div.className = 'msg-user';
+  div.innerHTML = `
+    <div style="background:#4F46E5;border-radius:14px 14px 4px 14px;padding:12px 14px;max-width:220px;">
+      <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);text-transform:uppercase;margin-bottom:6px;">Order Reference</div>
+      <div style="font-size:12px;font-weight:700;color:#fff;">#ORD-2024-8847</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:3px;">Wedding Buffet · 35,000 SAR</div>
+    </div>
+    <div class="bubble-time-user">${getTime()} ✓✓</div>`;
+  area.appendChild(div);
+  area.scrollTop = area.scrollHeight;
+}
+
+function getTime() {
+  const now = new Date();
+  return now.getHours() + ':' + String(now.getMinutes()).padStart(2,'0');
+}
+
+function openAttach() {
+  document.getElementById('attachSheet').classList.add('open');
+}
+function closeAttach(e) {
+  document.getElementById('attachSheet').classList.remove('open');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 2000);
+}
+
+document.getElementById('msgInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') sendMsg();
+});
+
+// scroll to bottom on load
+window.addEventListener('load', () => {
+  const area = document.getElementById('chatArea');
+  area.scrollTop = area.scrollHeight;
+});
+</script>
+</body>
+</html>
